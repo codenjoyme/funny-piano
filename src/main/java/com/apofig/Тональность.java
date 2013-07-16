@@ -1,7 +1,5 @@
 package com.apofig;
 
-import com.apofig.октавы.Октава;
-
 import static com.apofig.Интервал.*;
 
 /**
@@ -22,11 +20,11 @@ public enum Тональность {
         this.интервалы = интервалы;
     }
 
-    public Нота get(Нота отНоты, int порядок) {
-        int интервал = 0;
-        for (int index = 0; index < порядок - 1; index++) {
-            интервал += 2*интервалы[index].интервал();
+    public Нота get(Нота from, int order) {
+        int sum = 0;
+        for (int index = 0; index < order - 1; index++) {
+            sum += 2*интервалы[index].интервал();
         }
-        return new Нота(отНоты.тональность() + интервал);
+        return new Нота(from.тональность() + sum);
     }
 }

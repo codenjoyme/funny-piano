@@ -12,7 +12,31 @@ public class Нота {
         this.тональность = тональность;
     }
 
+    public Нота(Нота нота) {
+        тональность = нота.тональность();
+    }
+
     public int тональность() {
         return тональность;
+    }
+
+    @Override
+    public int hashCode() {
+        return тональность;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+
+        if (!(o instanceof Нота)) {
+            return false;
+        }
+
+        Нота нота = (Нота)o;
+
+        return нота.тональность == тональность;
     }
 }

@@ -3,6 +3,8 @@ package com.apofig;
 import com.apofig.октавы.Октава;
 
 import javax.sound.midi.*;
+import java.util.List;
+import java.util.Set;
 
 /**
  * User: sanja
@@ -24,9 +26,20 @@ public class Синтезатор {
         пауза(длительность);
     }
 
-    public void звучать(Нота нота, Тональность тональность, int длительность, int сила) {
+    public void звучать(Нота нота, int сила) {
+        midi.noteOn(нота.тональность(), сила);
+    }
+
+    public void звучать(Нота отНоты, Тональность тональность, int длительность, int сила) {
         for (int index = 1; index <= 8; index++) {
-            звучать(тональность.get(нота, index), длительность, сила);
+            звучать(тональность.get(отНоты, index), длительность, сила);
+        }
+    }
+
+    public void звучать(Нота отНоты, Трезвучие трезвучие, int сила) {
+        List<Нота> аккорд = трезвучие.get(отНоты);
+        for (Нота нота : аккорд) {
+            звучать(нота, сила);
         }
     }
 

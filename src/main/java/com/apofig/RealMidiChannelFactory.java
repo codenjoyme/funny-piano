@@ -28,9 +28,9 @@ public class RealMidiChannelFactory implements MidiChannelFactory {
             MidiChannel midi = channels[channels.length - 1];
             midi.programChange(0);
 
-            midi.noteOn(60, 10);
+            midi.noteOn(0, 10);
             sleep();
-            midi.noteOff(60);
+            midi.noteOff(0);
             return midi;
         } catch (MidiUnavailableException e) {
             throw new RuntimeException(e);
