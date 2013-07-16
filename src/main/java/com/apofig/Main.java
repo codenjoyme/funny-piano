@@ -9,7 +9,7 @@ import javax.sound.midi.*;
  */
 public class Main {
 
-    public static final int Do = 60;
+    private static MidiChannel synthChannel;
 
     public static void main(String[] args) throws MidiUnavailableException, InterruptedException {
         // init sequencer
@@ -22,13 +22,26 @@ public class Main {
 
         // get channel for synthesizing: the highest numbered channel.  sets it up
         MidiChannel[] channels = synth.getChannels();
-        MidiChannel synthChannel = channels[channels.length - 1];
+        synthChannel = channels[channels.length - 1];
         synthChannel.programChange(0);
+        звучать(Тональность.ДоМажор.get(1), 10, 1);
 
-        synthChannel.noteOn(Do, 120);
+        final int delay = 100;
 
-        Thread.sleep(100);
+        звучать(Тональность.ДоМажор.get(1), delay, 120);
+        звучать(Тональность.ДоМажор.get(2), delay, 120);
+        звучать(Тональность.ДоМажор.get(3), delay, 120);
+        звучать(Тональность.ДоМажор.get(4), delay, 120);
+        звучать(Тональность.ДоМажор.get(5), delay, 120);
+        звучать(Тональность.ДоМажор.get(6), delay, 120);
+        звучать(Тональность.ДоМажор.get(7), delay, 120);
+        звучать(Тональность.ДоМажор.get(8), delay, 120);
+    }
 
-        synthChannel.noteOff(Do);
+    private static void звучать(int нота, int длительность, int сила) throws InterruptedException {
+        synthChannel.noteOn(нота, сила);
+        Thread.sleep(длительность);
+        synthChannel.noteOff(нота);
+        Thread.sleep(длительность);
     }
 }
