@@ -2,6 +2,8 @@ package com.apofig;
 
 import javax.sound.midi.*;
 
+import static com.apofig.Тональность.ЛяМажор;
+
 /**
  * User: sanja
  * Date: 16.07.13
@@ -37,6 +39,12 @@ public class Синтезатор {
         пауза(длительность);
         synthChannel.noteOff(нота);
         пауза(длительность);
+    }
+
+    public void звучатьГамму(Тональность тональность, int длительность, int сила) {
+        for (int index = 1; index <= 8; index++) {
+            звучать(тональность.get(index), длительность, сила);
+        }
     }
 
     private void пауза(int длительность)  {
