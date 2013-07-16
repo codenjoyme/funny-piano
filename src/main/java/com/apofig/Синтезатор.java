@@ -2,8 +2,6 @@ package com.apofig;
 
 import javax.sound.midi.*;
 
-import static com.apofig.Тональность.ЛяМажор;
-
 /**
  * User: sanja
  * Date: 16.07.13
