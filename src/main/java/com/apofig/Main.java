@@ -11,7 +11,7 @@ public class Main {
 
     public static final int Do = 60;
 
-    public static void main(String[] args) throws MidiUnavailableException {
+    public static void main(String[] args) throws MidiUnavailableException, InterruptedException {
         // init sequencer
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
@@ -27,5 +27,8 @@ public class Main {
 
         synthChannel.noteOn(Do, 120);
 
+        Thread.sleep(100);
+
+        synthChannel.noteOff(Do);
     }
 }
