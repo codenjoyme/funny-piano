@@ -1,5 +1,8 @@
 package com.apofig;
 
+import com.apofig.октавы.Октава;
+import com.apofig.октавы.ПерваяОктава;
+
 import javax.sound.midi.*;
 
 /**
@@ -9,39 +12,22 @@ import javax.sound.midi.*;
  */
 public class Синтезатор {
 
-    private MidiChannel synthChannel;
+    private MidiChannel midi;
 
-    public Синтезатор() {
-        try {
-            // init sequencer
-            Sequencer sequencer = null;
-            sequencer = MidiSystem.getSequencer();
-            sequencer.open();
-
-            // init synthesizer
-            Synthesizer synth = MidiSystem.getSynthesizer();
-            synth.open();
-
-            // get channel for synthesizing: the highest numbered channel.  sets it up
-            MidiChannel[] channels = synth.getChannels();
-            synthChannel = channels[channels.length - 1];
-            synthChannel.programChange(0);
-            звучать(Тональность.ДоМажор.get(1), 10, 1);
-        } catch (MidiUnavailableException e) {
-            throw new RuntimeException(e);
-        }
+    public Синтезатор(MidiChannelFactory midiFactory) {
+        this.midi = midiFactory.get();
     }
 
     public void звучать(int нота, int длительность, int сила) {
-        synthChannel.noteOn(нота, сила);
+        midi.noteOn(нота, сила);
         пауза(длительность);
-        synthChannel.noteOff(нота);
+        midi.noteOff(нота);
         пауза(длительность);
     }
 
-    public void звучатьГамму(Тональность тональность, int длительность, int сила) {
+    public void звучатьГамму(Октава октава, Тональность тональность, int длительность, int сила) {
         for (int index = 1; index <= 8; index++) {
-            звучать(тональность.get(index), длительность, сила);
+            звучать(тональность.get(октава, index), длительность, сила);
         }
     }
 
