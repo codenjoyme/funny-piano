@@ -1,7 +1,6 @@
 package com.apofig;
 
 import com.apofig.октавы.Октава;
-import com.apofig.октавы.ПерваяОктава;
 
 import javax.sound.midi.*;
 
@@ -18,14 +17,14 @@ public class Синтезатор {
         this.midi = midiFactory.get();
     }
 
-    public void звучать(int нота, int длительность, int сила) {
-        midi.noteOn(нота, сила);
+    public void звучать(Нота нота, int длительность, int сила) {
+        midi.noteOn(нота.тональность(), сила);
         пауза(длительность);
-        midi.noteOff(нота);
+        midi.noteOff(нота.тональность());
         пауза(длительность);
     }
 
-    public void звучатьГамму(Октава октава, Тональность тональность, int длительность, int сила) {
+    public void звучать(Октава октава, Тональность тональность, int длительность, int сила) {
         for (int index = 1; index <= 8; index++) {
             звучать(тональность.get(октава, index), длительность, сила);
         }

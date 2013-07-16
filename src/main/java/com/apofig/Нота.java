@@ -6,13 +6,13 @@ package com.apofig;
  * Time: 23:01
  */
 public class Нота {
-    private int нота;
+    private int тональность;
 
-    public Нота(int нота) {
-        this.нота = нота;
+    public Нота(int тональность) {
+        this.тональность = тональность;
     }
 
-    public int нота() {
-        return нота;
+    public int тональность() {
+        return тональность;
     }
 }
