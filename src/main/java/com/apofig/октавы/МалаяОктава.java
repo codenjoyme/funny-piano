@@ -16,17 +16,17 @@ public class МалаяОктава extends Октава {
     }
 
     public static Нота C3 = МалаяОктава.нота(1);
-    public static Нота Cd3 = МалаяОктава.диез(1);
+    public static Нота Cis3 = МалаяОктава.диез(1);
     public static Нота D3 = МалаяОктава.нота(2);
-    public static Нота Dd3 = МалаяОктава.диез(2);
+    public static Нота Dis3 = МалаяОктава.диез(2);
     public static Нота E3 = МалаяОктава.нота(3);
     public static Нота F3 = МалаяОктава.нота(4);
-    public static Нота Fd3 = МалаяОктава.диез(4);
+    public static Нота Fis3 = МалаяОктава.диез(4);
     public static Нота G3 = МалаяОктава.нота(5);
-    public static Нота Gd3 = МалаяОктава.диез(5);
+    public static Нота Gis3 = МалаяОктава.диез(5);
     public static Нота A3 = МалаяОктава.нота(6);
-    public static Нота Ad3 = МалаяОктава.диез(6);
-    public static Нота B3 = Ad3;
+    public static Нота Ais3 = МалаяОктава.диез(6);
+    public static Нота B3 = Ais3;
     public static Нота H3 = МалаяОктава.нота(7);
 
     private static Нота нота(int номерНоты) {
@@ -40,10 +40,5 @@ public class МалаяОктава extends Октава {
     public МалаяОктава() {
         instance = this;
         init(БольшаяОктава.get(), ПерваяОктава.get(), 3);
-    }
-
-    @Override
-    public Нота база() {
-        return get(1);
     }
 }

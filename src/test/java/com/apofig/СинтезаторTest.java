@@ -66,7 +66,7 @@ public class СинтезаторTest {
     public void shouldPlayЛяМажорСПервойОктавы() {
         синтезатор.звучать(ПерваяОктава.get().get("A"), Тональность.Мажор, 1, 120);
 
-        assertPlay(A4, H4, Cd5, D5, E5, Fd5, Gd5, A5);
+        assertPlay(A4, H4, Cis5, D5, E5, Fis5, Gis5, A5);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class СинтезаторTest {
     public void shouldPlayМинорныйАккордCПервойОктавы() {
         синтезатор.звучать(ПерваяОктава.get().get("C"), Трезвучие.Минорное, 120);
 
-        assertPlay(C4, Dd4, G4);
+        assertPlay(C4, Dis4, G4);
     }
 }

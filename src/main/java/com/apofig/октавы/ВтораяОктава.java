@@ -16,17 +16,17 @@ public class ВтораяОктава extends Октава {
     }
 
     public static Нота C5 = ВтораяОктава.нота(1);
-    public static Нота Cd5 = ВтораяОктава.диез(1);
+    public static Нота Cis5 = ВтораяОктава.диез(1);
     public static Нота D5 = ВтораяОктава.нота(2);
-    public static Нота Dd5 = ВтораяОктава.диез(2);
+    public static Нота Dis5 = ВтораяОктава.диез(2);
     public static Нота E5 = ВтораяОктава.нота(3);
     public static Нота F5 = ВтораяОктава.нота(4);
-    public static Нота Fd5 = ВтораяОктава.диез(4);
+    public static Нота Fis5 = ВтораяОктава.диез(4);
     public static Нота G5 = ВтораяОктава.нота(5);
-    public static Нота Gd5 = ВтораяОктава.диез(5);
+    public static Нота Gis5 = ВтораяОктава.диез(5);
     public static Нота A5 = ВтораяОктава.нота(6);
-    public static Нота Ad5 = ВтораяОктава.диез(6);
-    public static Нота B5 = Ad5;
+    public static Нота Ais5 = ВтораяОктава.диез(6);
+    public static Нота B5 = Ais5;
     public static Нота H5 = ВтораяОктава.нота(7);
 
     private static Нота диез(int номерНоты) {
@@ -40,10 +40,5 @@ public class ВтораяОктава extends Октава {
     public ВтораяОктава() {
         instance = this;
         init(ПерваяОктава.get(), ТретьяОктава.get(), 5);
-    }
-
-    @Override
-    public Нота база() {
-        return get(1);
     }
 }

@@ -4,7 +4,6 @@ import com.apofig.октавы.*;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 import static com.apofig.октавы.ЧетвертаяОктава.*;
@@ -30,80 +29,80 @@ public class ОктаваTest {
     @Test
     public void shouldВсеКлавишиИдутПоследовательно() {
         List<Нота> ноты = Arrays.asList(
-                C0, Cd0, D0, Dd0, E0, F0, Fd0, G0, Gd0, A0, Ad0, H0,
-                C1, Cd1, D1, Dd1, E1, F1, Fd1, G1, Gd1, A1, Ad1, H1,
-                C2, Cd2, D2, Dd2, E2, F2, Fd2, G2, Gd2, A2, Ad2, H2,
-                C3, Cd3, D3, Dd3, E3, F3, Fd3, G3, Gd3, A3, Ad3, H3,
-                C4, Cd4, D4, Dd4, E4, F4, Fd4, G4, Gd4, A4, Ad4, H4,
-                C5, Cd5, D5, Dd5, E5, F5, Fd5, G5, Gd5, A5, Ad5, H5,
-                C6, Cd6, D6, Dd6, E6, F6, Fd6, G6, Gd6, A6, Ad6, H6,
-                C7, Cd7, D7, Dd7, E7, F7, Fd7, G7, Gd7, A7, Ad7, H7,
-                C8, Cd8, D8, Dd8, E8, F8, Fd8, G8, Gd8, A8, Ad8, H8);
+                C0, Cis0, D0, Dis0, E0, F0, Fis0, G0, Gis0, A0, Ais0, H0,
+                C1, Cis1, D1, Dis1, E1, F1, Fis1, G1, Gis1, A1, Ais1, H1,
+                C2, Cis2, D2, Dis2, E2, F2, Fis2, G2, Gis2, A2, Ais2, H2,
+                C3, Cis3, D3, Dis3, E3, F3, Fis3, G3, Gis3, A3, Ais3, H3,
+                C4, Cis4, D4, Dis4, E4, F4, Fis4, G4, Gis4, A4, Ais4, H4,
+                C5, Cis5, D5, Dis5, E5, F5, Fis5, G5, Gis5, A5, Ais5, H5,
+                C6, Cis6, D6, Dis6, E6, F6, Fis6, G6, Gis6, A6, Ais6, H6,
+                C7, Cis7, D7, Dis7, E7, F7, Fis7, G7, Gis7, A7, Ais7, H7,
+                C8, Cis8, D8, Dis8, E8, F8, Fis8, G8, Gis8, A8, Ais8, H8);
 
-        assertEquals("[C0(0), Cd0(1), D0(2), Dd0(3), E0(4), F0(5), Fd0(6), G0(7), Gd0(8), A0(9), Ad0(10), H0(11), " +
-                "C1(12), Cd1(13), D1(14), Dd1(15), E1(16), F1(17), Fd1(18), G1(19), Gd1(20), A1(21), Ad1(22), H1(23), " +
-                "C2(24), Cd2(25), D2(26), Dd2(27), E2(28), F2(29), Fd2(30), G2(31), Gd2(32), A2(33), Ad2(34), H2(35), " +
-                "C3(36), Cd3(37), D3(38), Dd3(39), E3(40), F3(41), Fd3(42), G3(43), Gd3(44), A3(45), Ad3(46), H3(47), " +
-                "C4(48), Cd4(49), D4(50), Dd4(51), E4(52), F4(53), Fd4(54), G4(55), Gd4(56), A4(57), Ad4(58), H4(59), " +
-                "C5(60), Cd5(61), D5(62), Dd5(63), E5(64), F5(65), Fd5(66), G5(67), Gd5(68), A5(69), Ad5(70), H5(71), " +
-                "C6(72), Cd6(73), D6(74), Dd6(75), E6(76), F6(77), Fd6(78), G6(79), Gd6(80), A6(81), Ad6(82), H6(83), " +
-                "C7(84), Cd7(85), D7(86), Dd7(87), E7(88), F7(89), Fd7(90), G7(91), Gd7(92), A7(93), Ad7(94), H7(95), " +
-                "C8(96), Cd8(97), D8(98), Dd8(99), E8(100), F8(101), Fd8(102), G8(103), Gd8(104), A8(105), Ad8(106), H8(107)]", ноты.toString());
+        assertEquals("[C0(0), Cis0(1), D0(2), Dis0(3), E0(4), F0(5), Fis0(6), G0(7), Gis0(8), A0(9), Ais0(10), H0(11), " +
+                "C1(12), Cis1(13), D1(14), Dis1(15), E1(16), F1(17), Fis1(18), G1(19), Gis1(20), A1(21), Ais1(22), H1(23), " +
+                "C2(24), Cis2(25), D2(26), Dis2(27), E2(28), F2(29), Fis2(30), G2(31), Gis2(32), A2(33), Ais2(34), H2(35), " +
+                "C3(36), Cis3(37), D3(38), Dis3(39), E3(40), F3(41), Fis3(42), G3(43), Gis3(44), A3(45), Ais3(46), H3(47), " +
+                "C4(48), Cis4(49), D4(50), Dis4(51), E4(52), F4(53), Fis4(54), G4(55), Gis4(56), A4(57), Ais4(58), H4(59), " +
+                "C5(60), Cis5(61), D5(62), Dis5(63), E5(64), F5(65), Fis5(66), G5(67), Gis5(68), A5(69), Ais5(70), H5(71), " +
+                "C6(72), Cis6(73), D6(74), Dis6(75), E6(76), F6(77), Fis6(78), G6(79), Gis6(80), A6(81), Ais6(82), H6(83), " +
+                "C7(84), Cis7(85), D7(86), Dis7(87), E7(88), F7(89), Fis7(90), G7(91), Gis7(92), A7(93), Ais7(94), H7(95), " +
+                "C8(96), Cis8(97), D8(98), Dis8(99), E8(100), F8(101), Fis8(102), G8(103), Gis8(104), A8(105), Ais8(106), H8(107)]", ноты.toString());
     }
 
     @Test
     public void shouldПолучаюНотуПоСимвольномуПредставлению() {
         List<Нота> ноты = Arrays.asList(
                 ПерваяОктава.get().get("C"),
-                ПерваяОктава.get().get("Cd"),
+                ПерваяОктава.get().get("Cis"),
                 ПерваяОктава.get().get("D"),
-                ПерваяОктава.get().get("Dd"),
+                ПерваяОктава.get().get("Dis"),
                 ПерваяОктава.get().get("E"),
                 ПерваяОктава.get().get("F"),
-                ПерваяОктава.get().get("Fd"),
+                ПерваяОктава.get().get("Fis"),
                 ПерваяОктава.get().get("G"),
-                ПерваяОктава.get().get("Gd"),
+                ПерваяОктава.get().get("Gis"),
                 ПерваяОктава.get().get("A"),
-                ПерваяОктава.get().get("Ad"),
+                ПерваяОктава.get().get("Ais"),
                 ПерваяОктава.get().get("H"));
 
-        assertEquals("[C4(48), Cd4(49), D4(50), Dd4(51), E4(52), F4(53), Fd4(54), G4(55), Gd4(56), A4(57), Ad4(58), H4(59)]", ноты.toString());
+        assertEquals("[C4(48), Cis4(49), D4(50), Dis4(51), E4(52), F4(53), Fis4(54), G4(55), Gis4(56), A4(57), Ais4(58), H4(59)]", ноты.toString());
     }
 
     @Test
-    public void shouldНотаBиAdОдинаковые() {
+    public void shouldНотаBиAisОдинаковые() {
         List<Нота> ноты = Arrays.asList(
                 ПерваяОктава.get().get("B"),
-                ПерваяОктава.get().get("Ad"));
+                ПерваяОктава.get().get("Ais"));
 
-        assertEquals("[Ad4(58), Ad4(58)]", ноты.toString());
+        assertEquals("[Ais4(58), Ais4(58)]", ноты.toString());
 
         ноты = Arrays.asList(
-                Ad0, B0,
-                Ad1, B1,
-                Ad2, B2,
-                Ad3, B3,
-                Ad4, B4,
-                Ad5, B5,
-                Ad6, B6,
-                Ad7, B7,
-                Ad8, B8);
+                Ais0, B0,
+                Ais1, B1,
+                Ais2, B2,
+                Ais3, B3,
+                Ais4, B4,
+                Ais5, B5,
+                Ais6, B6,
+                Ais7, B7,
+                Ais8, B8);
 
-        assertEquals("[Ad0(10), Ad0(10), " +
-                "Ad1(22), Ad1(22), " +
-                "Ad2(34), Ad2(34), " +
-                "Ad3(46), Ad3(46), " +
-                "Ad4(58), Ad4(58), " +
-                "Ad5(70), Ad5(70), " +
-                "Ad6(82), Ad6(82), " +
-                "Ad7(94), Ad7(94), " +
-                "Ad8(106), Ad8(106)]", ноты.toString());
+        assertEquals("[Ais0(10), Ais0(10), " +
+                "Ais1(22), Ais1(22), " +
+                "Ais2(34), Ais2(34), " +
+                "Ais3(46), Ais3(46), " +
+                "Ais4(58), Ais4(58), " +
+                "Ais5(70), Ais5(70), " +
+                "Ais6(82), Ais6(82), " +
+                "Ais7(94), Ais7(94), " +
+                "Ais8(106), Ais8(106)]", ноты.toString());
     }
 
     @Test
     public void shouldУEНетДиеза() {
         try {
-            ПерваяОктава.get().get("Ed");
+            ПерваяОктава.get().get("Eis");
             fail();
         } catch (Exception e) {
             assertEquals("У 'Е' нет диеза", e.getMessage());
@@ -113,7 +112,7 @@ public class ОктаваTest {
     @Test
     public void shouldУHНетДиеза() {
         try {
-            ПерваяОктава.get().get("Hd");
+            ПерваяОктава.get().get("His");
             fail();
         } catch (Exception e) {
             assertEquals("У 'Н' нет диеза", e.getMessage());
@@ -123,7 +122,7 @@ public class ОктаваTest {
     @Test
     public void shouldУBНетДиеза() {
         try {
-            ПерваяОктава.get().get("Bd");
+            ПерваяОктава.get().get("Bis");
             fail();
         } catch (Exception e) {
             assertEquals("У 'B' нет диеза", e.getMessage());

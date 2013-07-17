@@ -36,29 +36,29 @@ public class АккордыTest {
         assertАккорд(D4, G4, H4, "G", -1);
         assertАккорд(H3, D4, G4, "G", -2);
 
-        assertАккорд(A4, D5, Fd5, "D", 2);
-        assertАккорд(Fd4, A4, D5, "D", 1);
-        assertАккорд(D4, Fd4, A4, "D", 0);
-        assertАккорд(A3, D4, Fd4, "D", -1);
-        assertАккорд(Fd3, A3, D4, "D", -2);
+        assertАккорд(A4, D5, Fis5, "D", 2);
+        assertАккорд(Fis4, A4, D5, "D", 1);
+        assertАккорд(D4, Fis4, A4, "D", 0);
+        assertАккорд(A3, D4, Fis4, "D", -1);
+        assertАккорд(Fis3, A3, D4, "D", -2);
 
-        assertАккорд(E5, A5, Cd6, "A", 2);
-        assertАккорд(Cd5, E5, A5, "A", 1);
-        assertАккорд(A4, Cd5, E5, "A", 0);
-        assertАккорд(E4, A4, Cd5, "A", -1);
-        assertАккорд(Cd4, E4, A4, "A", -2);
+        assertАккорд(E5, A5, Cis6, "A", 2);
+        assertАккорд(Cis5, E5, A5, "A", 1);
+        assertАккорд(A4, Cis5, E5, "A", 0);
+        assertАккорд(E4, A4, Cis5, "A", -1);
+        assertАккорд(Cis4, E4, A4, "A", -2);
 
-        assertАккорд(H4, E5, Gd5, "E", 2);
-        assertАккорд(Gd4, H4, E5, "E", 1);
-        assertАккорд(E4, Gd4, H4, "E", 0);
-        assertАккорд(H3, E4, Gd4, "E", -1);
-        assertАккорд(Gd3, H3, E4, "E", -2);
+        assertАккорд(H4, E5, Gis5, "E", 2);
+        assertАккорд(Gis4, H4, E5, "E", 1);
+        assertАккорд(E4, Gis4, H4, "E", 0);
+        assertАккорд(H3, E4, Gis4, "E", -1);
+        assertАккорд(Gis3, H3, E4, "E", -2);
 
-        assertАккорд(Fd5, H5, Dd6, "H", 2);
-        assertАккорд(Dd5, Fd5, H5, "H", 1);
-        assertАккорд(H4, Dd5, Fd5, "H", 0);
-        assertАккорд(Fd4, H4, Dd5, "H", -1);
-        assertАккорд(Dd4, Fd4, H4, "H", -2);
+        assertАккорд(Fis5, H5, Dis6, "H", 2);
+        assertАккорд(Dis5, Fis5, H5, "H", 1);
+        assertАккорд(H4, Dis5, Fis5, "H", 0);
+        assertАккорд(Fis4, H4, Dis5, "H", -1);
+        assertАккорд(Dis4, Fis4, H4, "H", -2);
 
         assertАккорд(F5, B5, D6, "B", 2);
         assertАккорд(D5, F5, B5, "B", 1);

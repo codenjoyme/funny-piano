@@ -11,7 +11,7 @@ import java.util.List;
  * Date: 16.07.13
  * Time: 22:54
  */
-public abstract class Октава {
+public class Октава {
 
     private Нота до;
     private Октава следующая;
@@ -23,10 +23,8 @@ public abstract class Октава {
         до = new Нота(номерОктавы*12);
     }
 
-    public abstract Нота база();
-
     public Нота get(String нота) {
-        boolean диез = нота.length() > 1;
+        boolean диез = нота.contains("is");
         switch (нота.charAt(0)) {
             case 'C':
                 return get(1, диез);
