@@ -41,6 +41,12 @@ public class АккордыTest {
         assertАккорд(D4, Fd4, A4, "D", 0);
         assertАккорд(A3, D4, Fd4, "D", -1);
         assertАккорд(Fd3, A3, D4, "D", -2);
+
+        assertАккорд(E5, A5, Cd6, "A", 2);
+        assertАккорд(Cd5, E5, A5, "A", 1);
+        assertАккорд(A4, Cd5, E5, "A", 0);
+        assertАккорд(E4, A4, Cd5, "A", -1);
+        assertАккорд(Cd4, E4, A4, "A", -2);
     }
 
     private void assertАккорд(Нота нота1, Нота нота2, Нота нота3, String аккорд, int смещение) {
