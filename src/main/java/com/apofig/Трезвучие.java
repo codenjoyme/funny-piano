@@ -33,7 +33,7 @@ public enum Трезвучие {
         for (Интервал i : интервалы) {
             sum += 2 * i.интервал();
 
-            result.add(new Нота(from.тональность() + sum));
+            result.add(new Нота(from.частота() + sum));
         }
 
         return result;
