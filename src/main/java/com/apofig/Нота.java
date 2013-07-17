@@ -6,23 +6,23 @@ package com.apofig;
  * Time: 23:01
  */
 public class Нота {
-    private int тональность;
+    private int частота;
 
-    public Нота(int тональность) {
-        this.тональность = тональность;
+    public Нота(int частота) {
+        this.частота = частота;
     }
 
     public Нота(Нота нота) {
-        тональность = нота.частота();
+        частота = нота.частота();
     }
 
     public int частота() {
-        return тональность;
+        return частота;
     }
 
     @Override
     public int hashCode() {
-        return тональность;
+        return частота;
     }
 
     @Override
@@ -37,12 +37,12 @@ public class Нота {
 
         Нота нота = (Нота) o;
 
-        return нота.тональность == тональность;
+        return нота.частота == частота;
     }
 
     @Override
     public String toString() {
-        return String.format("%s", тональность);
+        return String.format("%s", частота);
     }
 
     public Нота наОктавуНиже() {
@@ -54,11 +54,11 @@ public class Нота {
     }
 
     public Нота выше(Интервал интервал) {
-        return new Нота(тональность + (int)(2*интервал.интервал()));
+        return new Нота(частота + интервал.интервал());
     }
 
     public Нота ниже(Интервал интервал) {
-        return new Нота(тональность - (int)(2*интервал.интервал()));
+        return new Нота(частота - интервал.интервал());
     }
 
     public Нота наПолтонаНиже() {

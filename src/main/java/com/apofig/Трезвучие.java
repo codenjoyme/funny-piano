@@ -31,7 +31,7 @@ public enum Трезвучие {
         result.add(new Нота(from));
 
         for (Интервал i : интервалы) {
-            sum += 2 * i.интервал();
+            sum += i.интервал();
 
             result.add(new Нота(from.частота() + sum));
         }
