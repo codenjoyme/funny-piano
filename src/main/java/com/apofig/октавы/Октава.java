@@ -28,14 +28,22 @@ public abstract class Октава {
 
     public Нота get(char нота) {
         switch (нота) {
-            case 'C' : return get(1);
-            case 'D' : return get(2);
-            case 'E' : return get(3);
-            case 'F' : return get(4);
-            case 'G' : return get(5);
-            case 'A' : return get(6);
-            case 'H' : return get(7);
-            default: throw new IllegalArgumentException("Нет такой ноты");
+            case 'C':
+                return get(1);
+            case 'D':
+                return get(2);
+            case 'E':
+                return get(3);
+            case 'F':
+                return get(4);
+            case 'G':
+                return get(5);
+            case 'A':
+                return get(6);
+            case 'H':
+                return get(7);
+            default:
+                throw new IllegalArgumentException("Нет такой ноты");
         }
     }
 

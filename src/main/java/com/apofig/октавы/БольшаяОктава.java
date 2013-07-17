@@ -10,8 +10,9 @@ import com.apofig.Нота;
 public class БольшаяОктава extends Октава {
 
     private static БольшаяОктава instance;
+
     public static БольшаяОктава get() {
-        return (instance != null)?instance:new БольшаяОктава();
+        return (instance != null) ? instance : new БольшаяОктава();
     }
 
     public static Нота C2 = БольшаяОктава.нота(1);

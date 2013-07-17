@@ -1,10 +1,7 @@
 package com.apofig;
 
-import com.apofig.октавы.Октава;
-
-import javax.sound.midi.*;
+import javax.sound.midi.MidiChannel;
 import java.util.List;
-import java.util.Set;
 
 /**
  * User: sanja
@@ -43,7 +40,7 @@ public class Синтезатор {
         }
     }
 
-    private void пауза(int длительность)  {
+    private void пауза(int длительность) {
         try {
             Thread.sleep(длительность);
         } catch (InterruptedException e) {

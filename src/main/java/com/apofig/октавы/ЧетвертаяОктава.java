@@ -10,8 +10,9 @@ import com.apofig.Нота;
 public class ЧетвертаяОктава extends Октава {
 
     private static ЧетвертаяОктава instance;
+
     public static ЧетвертаяОктава get() {
-        return (instance != null)?instance:new ЧетвертаяОктава();
+        return (instance != null) ? instance : new ЧетвертаяОктава();
     }
 
     public static Нота C7 = ЧетвертаяОктава.нота(1);

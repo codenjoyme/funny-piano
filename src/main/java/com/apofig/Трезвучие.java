@@ -1,11 +1,10 @@
 package com.apofig;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
-import static com.apofig.Интервал.*;
+import static com.apofig.Интервал.БольшаяТерция;
+import static com.apofig.Интервал.МалаяТерция;
 
 /**
  * User: sanja
@@ -32,7 +31,7 @@ public enum Трезвучие {
         result.add(new Нота(from));
 
         for (Интервал i : интервалы) {
-            sum += 2*i.интервал();
+            sum += 2 * i.интервал();
 
             result.add(new Нота(from.тональность() + sum));
         }

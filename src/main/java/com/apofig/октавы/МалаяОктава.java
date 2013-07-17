@@ -10,8 +10,9 @@ import com.apofig.Нота;
 public class МалаяОктава extends Октава {
 
     private static МалаяОктава instance;
+
     public static МалаяОктава get() {
-        return (instance != null)?instance:new МалаяОктава();
+        return (instance != null) ? instance : new МалаяОктава();
     }
 
     public static Нота C3 = МалаяОктава.нота(1);

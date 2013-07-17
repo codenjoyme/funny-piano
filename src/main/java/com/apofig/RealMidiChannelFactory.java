@@ -1,7 +1,5 @@
 package com.apofig;
 
-import com.apofig.октавы.ПерваяОктава;
-
 import javax.sound.midi.*;
 
 /**
