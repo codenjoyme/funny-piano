@@ -26,8 +26,8 @@ public class Контроктава extends Октава {
     public static Нота Gd1 = Контроктава.диез(5);
     public static Нота A1 = Контроктава.нота(6);
     public static Нота Ad1 = Контроктава.диез(6);
+    public static Нота B1 = Ad1;
     public static Нота H1 = Контроктава.нота(7);
-    public static Нота B1 = Контроктава.нота(7);
 
     private static Нота нота(int номерНоты) {
         return get().get(номерНоты);

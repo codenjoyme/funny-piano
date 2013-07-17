@@ -26,8 +26,8 @@ public class ТретьяОктава extends Октава {
     public static Нота Gd6 = ТретьяОктава.диез(5);
     public static Нота A6 = ТретьяОктава.нота(6);
     public static Нота Ad6 = ТретьяОктава.диез(6);
+    public static Нота B6 = Ad6;
     public static Нота H6 = ТретьяОктава.нота(7);
-    public static Нота B6 = ТретьяОктава.нота(7);
 
     private static Нота диез(int номерНоты) {
         return get().get(номерНоты, true);

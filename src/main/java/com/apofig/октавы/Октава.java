@@ -46,7 +46,7 @@ public abstract class Октава {
                 return get(7, диез);
             case 'B':
                 if (диез) throw new IllegalArgumentException("У 'B' нет диеза");
-                return get(7, диез);
+                return get(6, true);
             default:
                 throw new IllegalArgumentException("Нет такой ноты");
         }

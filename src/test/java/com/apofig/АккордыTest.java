@@ -48,17 +48,23 @@ public class АккордыTest {
         assertАккорд(E4, A4, Cd5, "A", -1);
         assertАккорд(Cd4, E4, A4, "A", -2);
 
-        assertАккорд(B4, E5, Gd5, "E", 2);
-        assertАккорд(Gd4, B4, E5, "E", 1);
-        assertАккорд(E4, Gd4, B4, "E", 0);
-        assertАккорд(B3, E4, Gd4, "E", -1);
-        assertАккорд(Gd3, B3, E4, "E", -2);
+        assertАккорд(H4, E5, Gd5, "E", 2);
+        assertАккорд(Gd4, H4, E5, "E", 1);
+        assertАккорд(E4, Gd4, H4, "E", 0);
+        assertАккорд(H3, E4, Gd4, "E", -1);
+        assertАккорд(Gd3, H3, E4, "E", -2);
 
-        assertАккорд(Fd5, B5, Dd6, "B", 2);
-        assertАккорд(Dd5, Fd5, B5, "B", 1);
-        assertАккорд(B4, Dd5, Fd5, "B", 0);
-        assertАккорд(Fd4, B4, Dd5, "B", -1);
-        assertАккорд(Dd4, Fd4, B4, "B", -2);
+        assertАккорд(Fd5, H5, Dd6, "H", 2);
+        assertАккорд(Dd5, Fd5, H5, "H", 1);
+        assertАккорд(H4, Dd5, Fd5, "H", 0);
+        assertАккорд(Fd4, H4, Dd5, "H", -1);
+        assertАккорд(Dd4, Fd4, H4, "H", -2);
+
+        assertАккорд(F5, B5, D6, "B", 2);
+        assertАккорд(D5, F5, B5, "B", 1);
+        assertАккорд(B4, D5, F5, "B", 0);
+        assertАккорд(F4, B4, D5, "B", -1);
+        assertАккорд(D4, F4, B4, "B", -2);
     }
 
     private void assertАккорд(Нота нота1, Нота нота2, Нота нота3, String аккорд, int смещение) {

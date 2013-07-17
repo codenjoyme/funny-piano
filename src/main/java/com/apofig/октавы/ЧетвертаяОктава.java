@@ -26,8 +26,8 @@ public class ЧетвертаяОктава extends Октава {
     public static Нота Gd7 = ЧетвертаяОктава.диез(5);
     public static Нота A7 = ЧетвертаяОктава.нота(6);
     public static Нота Ad7 = ЧетвертаяОктава.диез(6);
+    public static Нота B7 = Ad7;
     public static Нота H7 = ЧетвертаяОктава.нота(7);
-    public static Нота B7 = ЧетвертаяОктава.нота(7);
 
     private static Нота диез(int номерНоты) {
         return get().get(номерНоты, true);

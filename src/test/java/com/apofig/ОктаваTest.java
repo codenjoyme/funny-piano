@@ -71,33 +71,33 @@ public class ОктаваTest {
     }
 
     @Test
-    public void shouldНотаHиBОдинаковые() {
+    public void shouldНотаBиAdОдинаковые() {
         List<Нота> ноты = Arrays.asList(
                 ПерваяОктава.get().get("B"),
-                ПерваяОктава.get().get("H"));
+                ПерваяОктава.get().get("Ad"));
 
-        assertEquals("[H4(59), H4(59)]", ноты.toString());
+        assertEquals("[Ad4(58), Ad4(58)]", ноты.toString());
 
         ноты = Arrays.asList(
-                H0, B0,
-                H1, B1,
-                H2, B2,
-                H3, B3,
-                H4, B4,
-                H5, B5,
-                H6, H6,
-                H7, H7,
-                H8, B8);
+                Ad0, B0,
+                Ad1, B1,
+                Ad2, B2,
+                Ad3, B3,
+                Ad4, B4,
+                Ad5, B5,
+                Ad6, B6,
+                Ad7, B7,
+                Ad8, B8);
 
-        assertEquals("[H0(11), H0(11), " +
-                "H1(23), H1(23), " +
-                "H2(35), H2(35), " +
-                "H3(47), H3(47), " +
-                "H4(59), H4(59), " +
-                "H5(71), H5(71), " +
-                "H6(83), H6(83), " +
-                "H7(95), H7(95), " +
-                "H8(107), H8(107)]", ноты.toString());
+        assertEquals("[Ad0(10), Ad0(10), " +
+                "Ad1(22), Ad1(22), " +
+                "Ad2(34), Ad2(34), " +
+                "Ad3(46), Ad3(46), " +
+                "Ad4(58), Ad4(58), " +
+                "Ad5(70), Ad5(70), " +
+                "Ad6(82), Ad6(82), " +
+                "Ad7(94), Ad7(94), " +
+                "Ad8(106), Ad8(106)]", ноты.toString());
     }
 
     @Test

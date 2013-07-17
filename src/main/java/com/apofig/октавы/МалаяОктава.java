@@ -26,8 +26,8 @@ public class МалаяОктава extends Октава {
     public static Нота Gd3 = МалаяОктава.диез(5);
     public static Нота A3 = МалаяОктава.нота(6);
     public static Нота Ad3 = МалаяОктава.диез(6);
+    public static Нота B3 = Ad3;
     public static Нота H3 = МалаяОктава.нота(7);
-    public static Нота B3 = МалаяОктава.нота(7);
 
     private static Нота нота(int номерНоты) {
         return get().get(номерНоты);
