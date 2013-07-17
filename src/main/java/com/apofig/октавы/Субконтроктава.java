@@ -16,12 +16,21 @@ public class Субконтроктава extends Октава {
     }
 
     public static Нота C0 = Субконтроктава.нота(1);
+    public static Нота Cd0 = Субконтроктава.диез(1);
     public static Нота D0 = Субконтроктава.нота(2);
+    public static Нота Dd0 = Субконтроктава.диез(2);
     public static Нота E0 = Субконтроктава.нота(3);
     public static Нота F0 = Субконтроктава.нота(4);
+    public static Нота Fd0 = Субконтроктава.диез(4);
     public static Нота G0 = Субконтроктава.нота(5);
+    public static Нота Gd0 = Субконтроктава.диез(5);
     public static Нота A0 = Субконтроктава.нота(6);
+    public static Нота Ad0 = Субконтроктава.диез(6);
     public static Нота H0 = Субконтроктава.нота(7);
+
+    private static Нота диез(int номерНоты) {
+        return get().get(номерНоты, true);
+    }
 
     private static Нота нота(int номерНоты) {
         return get().get(номерНоты);
@@ -29,7 +38,7 @@ public class Субконтроктава extends Октава {
 
     public Субконтроктава() {
         instance = this;
-        init(null, Контроктава.get(), 0, 2, 4, 5, 7, 9, 11);
+        init(null, Контроктава.get(), 0);
     }
 
     @Override

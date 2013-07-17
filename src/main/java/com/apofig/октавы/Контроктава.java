@@ -16,20 +16,29 @@ public class Контроктава extends Октава {
     }
 
     public static Нота C1 = Контроктава.нота(1);
+    public static Нота Cd1 = Контроктава.диез(1);
     public static Нота D1 = Контроктава.нота(2);
+    public static Нота Dd1 = Контроктава.диез(2);
     public static Нота E1 = Контроктава.нота(3);
     public static Нота F1 = Контроктава.нота(4);
+    public static Нота Fd1 = Контроктава.диез(4);
     public static Нота G1 = Контроктава.нота(5);
+    public static Нота Gd1 = Контроктава.диез(5);
     public static Нота A1 = Контроктава.нота(6);
+    public static Нота Ad1 = Контроктава.диез(6);
     public static Нота H1 = Контроктава.нота(7);
 
     private static Нота нота(int номерНоты) {
         return get().get(номерНоты);
     }
 
+    private static Нота диез(int номерНоты) {
+        return get().get(номерНоты, true);
+    }
+
     public Контроктава() {
         instance = this;
-        init(Субконтроктава.get(), БольшаяОктава.get(), 12, 14, 16, 17, 19, 21, 23);
+        init(Субконтроктава.get(), БольшаяОктава.get(), 1);
     }
 
     @Override

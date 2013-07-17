@@ -23,8 +23,13 @@ public enum Тональность {
     public Нота get(Нота from, int order) {
         int sum = 0;
         for (int index = 0; index < order - 1; index++) {
-            sum += 2 * интервалы[index].интервал();
+            sum += 2 * интервал(index);
         }
         return new Нота(from.тональность() + sum);
+    }
+
+    private double интервал(int index) {
+        index = index % 7;
+        return интервалы[index].интервал();
     }
 }

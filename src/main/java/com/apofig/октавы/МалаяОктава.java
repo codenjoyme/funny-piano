@@ -16,20 +16,29 @@ public class МалаяОктава extends Октава {
     }
 
     public static Нота C3 = МалаяОктава.нота(1);
+    public static Нота Cd3 = МалаяОктава.диез(1);
     public static Нота D3 = МалаяОктава.нота(2);
+    public static Нота Dd3 = МалаяОктава.диез(2);
     public static Нота E3 = МалаяОктава.нота(3);
     public static Нота F3 = МалаяОктава.нота(4);
+    public static Нота Fd3 = МалаяОктава.диез(4);
     public static Нота G3 = МалаяОктава.нота(5);
+    public static Нота Gd3 = МалаяОктава.диез(5);
     public static Нота A3 = МалаяОктава.нота(6);
+    public static Нота Ad3 = МалаяОктава.диез(6);
     public static Нота H3 = МалаяОктава.нота(7);
 
     private static Нота нота(int номерНоты) {
         return get().get(номерНоты);
     }
 
+    private static Нота диез(int номерНоты) {
+        return get().get(номерНоты, true);
+    }
+
     public МалаяОктава() {
         instance = this;
-        init(БольшаяОктава.get(), ПерваяОктава.get(), 36, 38, 40, 41, 43, 45, 47);
+        init(БольшаяОктава.get(), ПерваяОктава.get(), 3);
     }
 
     @Override

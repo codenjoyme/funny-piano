@@ -3,6 +3,11 @@ package com.apofig;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static com.apofig.октавы.ПерваяОктава.*;
+import static com.apofig.октавы.ВтораяОктава.*;
+import static com.apofig.октавы.ТретьяОктава.*;
+import static com.apofig.октавы.МалаяОктава.*;
+import static com.apofig.октавы.БольшаяОктава.*;
 
 /**
  * User: sanja
@@ -13,22 +18,27 @@ public class АккордыTest {
 
     @Test
     public void shouldWork() {
-        assertEquals("[55, 60, 64]",  Аккорды.get("C", 2).toString());
-        assertEquals("[52, 55, 60]",  Аккорды.get("C", 1).toString());
-        assertEquals("[48, 52, 55]",  Аккорды.get("C").toString());
-        assertEquals("[43, 48, 52]",  Аккорды.get("C", -1).toString());
-        assertEquals("[40, 43, 48]",  Аккорды.get("C", -2).toString());
+        assertАккорд(G4, C5, E5, "C", 2);
+        assertАккорд(E4, G4, C5, "C", 1);
+        assertАккорд(C4, E4, G4, "C", 0);
+        assertАккорд(G3, C4, E4, "C", -1);
+        assertАккорд(E3, G3, C4, "C", -2);
 
-        assertEquals("[60, 65, 69]",  Аккорды.get("F", 2).toString());
-        assertEquals("[57, 60, 65]",  Аккорды.get("F", 1).toString());
-        assertEquals("[53, 57, 60]",  Аккорды.get("F").toString());
-        assertEquals("[48, 53, 57]",  Аккорды.get("F", -1).toString());
-        assertEquals("[45, 48, 53]",  Аккорды.get("F", -2).toString());
+        assertАккорд(C5, F5, A5, "F", 2);
+        assertАккорд(A4, C5, F5, "F", 1);
+        assertАккорд(F4, A4, C5, "F", 0);
+        assertАккорд(C4, F4, A4, "F", -1);
+        assertАккорд(A3, C4, F4, "F", -2);
 
-        assertEquals("[62, 67, 71]",  Аккорды.get("G", 2).toString());
-        assertEquals("[59, 62, 67]",  Аккорды.get("G", 1).toString());
-        assertEquals("[55, 59, 62]",  Аккорды.get("G").toString());
-        assertEquals("[50, 55, 59]",  Аккорды.get("G", -1).toString());
-        assertEquals("[47, 50, 55]",  Аккорды.get("G", -2).toString());
+        assertАккорд(D5, G5, H5, "G", 2);
+        assertАккорд(H4, D5, G5, "G", 1);
+        assertАккорд(G4, H4, D5, "G", 0);
+        assertАккорд(D4, G4, H4, "G", -1);
+        assertАккорд(H3, D4, G4, "G", -2);
+    }
+
+    private void assertАккорд(Нота нота1, Нота нота2, Нота нота3, String аккорд, int смещение) {
+        String expected = String.format("[%s, %s, %s]", нота1, нота2, нота3);
+        assertEquals(expected,  Аккорды.get(аккорд, смещение).toString());
     }
 }
