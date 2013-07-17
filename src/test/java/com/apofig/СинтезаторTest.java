@@ -68,7 +68,7 @@ public class СинтезаторTest {
     public void shouldPlayМажорныйАккордСПервойОктавы() {
         синтезатор.звучать(ПерваяОктава.get().get('C'), Трезвучие.Мажорное, 120);
 
-        assertPlay(48, 55, 52);
+        assertPlay(48, 52, 55);
     }
 
     @Test
