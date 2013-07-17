@@ -39,4 +39,17 @@ public class Нота {
 
         return нота.тональность == тональность;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s", тональность);
+    }
+
+    public Нота наОктавуНиже() {
+        return new Нота(тональность - 12);
+    }
+
+    public Нота наОктавуВыше() {
+        return new Нота(тональность + 12);
+    }
 }
