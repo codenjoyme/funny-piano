@@ -9,6 +9,7 @@ import javax.sound.midi.MidiChannel;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -53,7 +54,12 @@ public class СинтезаторTest {
 
         LinkedList<Нота> expected1 = new LinkedList<Нота>();
         expected1.addAll(Arrays.asList(expected));
-        assertEquals(expected1.toString(), captor.getAllValues().toString());
+        List<Integer> values = captor.getAllValues();
+        List<Нота> actual = new LinkedList<Нота>();
+        for (Integer value : values) {
+            actual.add(new Нота(value));
+        }
+        assertEquals(expected1.toString(), actual.toString());
     }
 
     @Test
