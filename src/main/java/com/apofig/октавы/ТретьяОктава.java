@@ -27,6 +27,7 @@ public class ТретьяОктава extends Октава {
     public static Нота A6 = ТретьяОктава.нота(6);
     public static Нота Ad6 = ТретьяОктава.диез(6);
     public static Нота H6 = ТретьяОктава.нота(7);
+    public static Нота B6 = ТретьяОктава.нота(7);
 
     private static Нота диез(int номерНоты) {
         return get().get(номерНоты, true);
@@ -38,7 +39,7 @@ public class ТретьяОктава extends Октава {
 
     public ТретьяОктава() {
         instance = this;
-        init(ТретьяОктава.get(), ЧетвертаяОктава.get(), 6);
+        init(ВтораяОктава.get(), ЧетвертаяОктава.get(), 6);
     }
 
     @Override

@@ -27,6 +27,7 @@ public class Субконтроктава extends Октава {
     public static Нота A0 = Субконтроктава.нота(6);
     public static Нота Ad0 = Субконтроктава.диез(6);
     public static Нота H0 = Субконтроктава.нота(7);
+    public static Нота B0 = Субконтроктава.нота(7);
 
     private static Нота диез(int номерНоты) {
         return get().get(номерНоты, true);

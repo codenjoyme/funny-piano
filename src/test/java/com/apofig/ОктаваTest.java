@@ -1,6 +1,6 @@
 package com.apofig;
 
-import com.apofig.октавы.ПерваяОктава;
+import com.apofig.октавы.*;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -17,6 +17,7 @@ import static com.apofig.октавы.БольшаяОктава.*;
 import static com.apofig.октавы.Субконтроктава.*;
 import static com.apofig.октавы.Контроктава.*;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertSame;
 import static junit.framework.Assert.fail;
 
 /**
@@ -76,6 +77,27 @@ public class ОктаваTest {
                 ПерваяОктава.get().get("H"));
 
         assertEquals("[59, 59]", ноты.toString());
+
+        ноты = Arrays.asList(
+                H0, B0,
+                H1, B1,
+                H2, B2,
+                H3, B3,
+                H4, B4,
+                H5, B5,
+                H6, H6,
+                H7, H7,
+                H8, B8);
+
+        assertEquals("[11, 11, " +
+                "23, 23, " +
+                "35, 35, " +
+                "47, 47, " +
+                "59, 59, " +
+                "71, 71, " +
+                "83, 83, " +
+                "95, 95, " +
+                "107, 107]", ноты.toString());
     }
 
     @Test
@@ -126,6 +148,38 @@ public class ОктаваTest {
         } catch (Exception e) {
             assertEquals("У 'E', 'Н'/'B' нет диезов", e.getMessage());
         }
+    }
+
+    @Test
+    public void shouldОктавыИдутПодряд() {
+        assertSame(null, Субконтроктава.get().предыдущая());
+        assertSame(Контроктава.get(), Субконтроктава.get().следующая());
+
+        assertSame(Субконтроктава.get(), Контроктава.get().предыдущая());
+        assertSame(БольшаяОктава.get(), Контроктава.get().следующая());
+
+        assertSame(Контроктава.get(), БольшаяОктава.get().предыдущая());
+        assertSame(МалаяОктава.get(), БольшаяОктава.get().следующая());
+
+        assertSame(БольшаяОктава.get(), МалаяОктава.get().предыдущая());
+        assertSame(ПерваяОктава.get(), МалаяОктава.get().следующая());
+
+        assertSame(МалаяОктава.get(), ПерваяОктава.get().предыдущая());
+        assertSame(ВтораяОктава.get(), ПерваяОктава.get().следующая());
+
+        assertSame(ПерваяОктава.get(), ВтораяОктава.get().предыдущая());
+        assertSame(ТретьяОктава.get(), ВтораяОктава.get().следующая());
+
+        assertSame(ВтораяОктава.get(), ТретьяОктава.get().предыдущая());
+        assertSame(ЧетвертаяОктава.get(), ТретьяОктава.get().следующая());
+
+        assertSame(ТретьяОктава.get(), ЧетвертаяОктава.get().предыдущая());
+        assertSame(ПятаяОктава.get(), ЧетвертаяОктава.get().следующая());
+
+        assertSame(ЧетвертаяОктава.get(), ПятаяОктава.get().предыдущая());
+        assertSame(null, ПятаяОктава.get().следующая());
+
+
     }
 
 
