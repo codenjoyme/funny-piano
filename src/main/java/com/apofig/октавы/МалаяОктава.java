@@ -17,13 +17,17 @@ public class МалаяОктава extends Октава {
 
     public static Нота C3 = МалаяОктава.нота(1);
     public static Нота Cis3 = МалаяОктава.диез(1);
+    public static Нота Des3 = Cis3;
     public static Нота D3 = МалаяОктава.нота(2);
     public static Нота Dis3 = МалаяОктава.диез(2);
+    public static Нота Es3 = Dis3;
     public static Нота E3 = МалаяОктава.нота(3);
     public static Нота F3 = МалаяОктава.нота(4);
     public static Нота Fis3 = МалаяОктава.диез(4);
+    public static Нота Ges3 = Fis3;
     public static Нота G3 = МалаяОктава.нота(5);
     public static Нота Gis3 = МалаяОктава.диез(5);
+    public static Нота As3 = Gis3;
     public static Нота A3 = МалаяОктава.нота(6);
     public static Нота Ais3 = МалаяОктава.диез(6);
     public static Нота B3 = Ais3;
@@ -34,7 +38,7 @@ public class МалаяОктава extends Октава {
     }
 
     private static Нота диез(int номерНоты) {
-        return get().get(номерНоты, true);
+        return get().get(номерНоты, true, false);
     }
 
     public МалаяОктава() {

@@ -55,18 +55,23 @@ public class ОктаваTest {
         List<Нота> ноты = Arrays.asList(
                 ПерваяОктава.get().get("C"),
                 ПерваяОктава.get().get("Cis"),
+                ПерваяОктава.get().get("Des"),
                 ПерваяОктава.get().get("D"),
                 ПерваяОктава.get().get("Dis"),
+                ПерваяОктава.get().get("Es"),
                 ПерваяОктава.get().get("E"),
                 ПерваяОктава.get().get("F"),
                 ПерваяОктава.get().get("Fis"),
+                ПерваяОктава.get().get("Ges"),
                 ПерваяОктава.get().get("G"),
                 ПерваяОктава.get().get("Gis"),
+                ПерваяОктава.get().get("As"),
                 ПерваяОктава.get().get("A"),
                 ПерваяОктава.get().get("Ais"),
+                ПерваяОктава.get().get("B"),
                 ПерваяОктава.get().get("H"));
 
-        assertEquals("[C4(48), Cis4(49), D4(50), Dis4(51), E4(52), F4(53), Fis4(54), G4(55), Gis4(56), A4(57), Ais4(58), H4(59)]", ноты.toString());
+        assertEquals("[C4(48), Cis4(49), Cis4(49), D4(50), Dis4(51), Dis4(51), E4(52), F4(53), Fis4(54), Fis4(54), G4(55), Gis4(56), Gis4(56), A4(57), Ais4(58), Ais4(58), H4(59)]", ноты.toString());
     }
 
     @Test
@@ -97,6 +102,92 @@ public class ОктаваTest {
                 "Ais6(82), Ais6(82), " +
                 "Ais7(94), Ais7(94), " +
                 "Ais8(106), Ais8(106)]", ноты.toString());
+    }
+
+    @Test
+    public void shouldНотаESиISНаТонаОдинаковые() {
+        List<Нота> ноты = Arrays.asList(
+                Des0, Cis0,
+                Es0, Dis0,
+                Ges0, Fis0,
+                As0, Gis0,
+
+                Des1, Cis1,
+                Es1, Dis1,
+                Ges1, Fis1,
+                As1, Gis1,
+
+                Des2, Cis2,
+                Es2, Dis2,
+                Ges2, Fis2,
+                As2, Gis2,
+
+                Des3, Cis3,
+                Es3, Dis3,
+                Ges3, Fis3,
+                As3, Gis3,
+
+                Des4, Cis4,
+                Es4, Dis4,
+                Ges4, Fis4,
+                As4, Gis4,
+
+                Des5, Cis5,
+                Es5, Dis5,
+                Ges5, Fis5,
+                As5, Gis5,
+
+                Des6, Cis6,
+                Es6, Dis6,
+                Ges6, Fis6,
+                As6, Gis6,
+
+                Des7, Cis7,
+                Es7, Dis7,
+                Ges7, Fis7,
+                As7, Gis7,
+
+                Des8, Cis8,
+                Es8, Dis8,
+                Ges8, Fis8,
+                As8, Gis8);
+
+        assertEquals("[Cis0(1), Cis0(1), " +
+                "Dis0(3), Dis0(3), " +
+                "Fis0(6), Fis0(6), " +
+                "Gis0(8), Gis0(8), " +
+                "Cis1(13), Cis1(13), " +
+                "Dis1(15), Dis1(15), " +
+                "Fis1(18), Fis1(18), " +
+                "Gis1(20), Gis1(20), " +
+                "Cis2(25), Cis2(25), " +
+                "Dis2(27), Dis2(27), " +
+                "Fis2(30), Fis2(30), " +
+                "Gis2(32), Gis2(32), " +
+                "Cis3(37), Cis3(37), " +
+                "Dis3(39), Dis3(39), " +
+                "Fis3(42), Fis3(42), " +
+                "Gis3(44), Gis3(44), " +
+                "Cis4(49), Cis4(49), " +
+                "Dis4(51), Dis4(51), " +
+                "Fis4(54), Fis4(54), " +
+                "Gis4(56), Gis4(56), " +
+                "Cis5(61), Cis5(61), " +
+                "Dis5(63), Dis5(63), " +
+                "Fis5(66), Fis5(66), " +
+                "Gis5(68), Gis5(68), " +
+                "Cis6(73), Cis6(73), " +
+                "Dis6(75), Dis6(75), " +
+                "Fis6(78), Fis6(78), " +
+                "Gis6(80), Gis6(80), " +
+                "Cis7(85), Cis7(85), " +
+                "Dis7(87), Dis7(87), " +
+                "Fis7(90), Fis7(90), " +
+                "Gis7(92), Gis7(92), " +
+                "Cis8(97), Cis8(97), " +
+                "Dis8(99), Dis8(99), " +
+                "Fis8(102), Fis8(102), " +
+                "Gis8(104), Gis8(104)]", ноты.toString());
     }
 
     @Test
@@ -132,7 +223,7 @@ public class ОктаваTest {
     @Test
     public void shouldУBНетДиеза2() {
         try {
-            ПерваяОктава.get().get(7, true);
+            ПерваяОктава.get().get(7, true, false);
             fail();
         } catch (Exception e) {
             assertEquals("У 'E', 'Н'/'B' нет диезов", e.getMessage());
@@ -142,7 +233,7 @@ public class ОктаваTest {
     @Test
     public void shouldУEНетДиеза2() {
         try {
-            ПерваяОктава.get().get(3, true);
+            ПерваяОктава.get().get(3, true, false);
             fail();
         } catch (Exception e) {
             assertEquals("У 'E', 'Н'/'B' нет диезов", e.getMessage());

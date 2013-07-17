@@ -17,13 +17,17 @@ public class БольшаяОктава extends Октава {
 
     public static Нота C2 = БольшаяОктава.нота(1);
     public static Нота Cis2 = БольшаяОктава.диез(1);
+    public static Нота Des2 = Cis2;
     public static Нота D2 = БольшаяОктава.нота(2);
     public static Нота Dis2 = БольшаяОктава.диез(2);
+    public static Нота Es2 = Dis2;
     public static Нота E2 = БольшаяОктава.нота(3);
     public static Нота F2 = БольшаяОктава.нота(4);
     public static Нота Fis2 = БольшаяОктава.диез(4);
+    public static Нота Ges2 = Fis2;
     public static Нота G2 = БольшаяОктава.нота(5);
     public static Нота Gis2 = БольшаяОктава.диез(5);
+    public static Нота As2 = Gis2;
     public static Нота A2 = БольшаяОктава.нота(6);
     public static Нота Ais2 = БольшаяОктава.диез(6);
     public static Нота B2 = Ais2;
@@ -34,7 +38,7 @@ public class БольшаяОктава extends Октава {
     }
 
     private static Нота диез(int номерНоты) {
-        return get().get(номерНоты, true);
+        return get().get(номерНоты, true, false);
     }
 
     public БольшаяОктава() {
