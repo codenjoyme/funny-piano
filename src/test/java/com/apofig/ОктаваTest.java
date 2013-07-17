@@ -1,8 +1,10 @@
 package com.apofig;
 
+import com.apofig.октавы.ПерваяОктава;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import static com.apofig.октавы.ЧетвертаяОктава.*;
@@ -15,6 +17,7 @@ import static com.apofig.октавы.БольшаяОктава.*;
 import static com.apofig.октавы.Субконтроктава.*;
 import static com.apofig.октавы.Контроктава.*;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.fail;
 
 /**
  * User: sanja
@@ -24,7 +27,7 @@ import static junit.framework.Assert.assertEquals;
 public class ОктаваTest {
 
     @Test
-    public void shouldWorkВсеКлавишиИдутПоследовательно() {
+    public void shouldВсеКлавишиИдутПоследовательно() {
         List<Нота> ноты = Arrays.asList(
                 C0, Cd0, D0, Dd0, E0, F0, Fd0, G0, Gd0, A0, Ad0, H0,
                 C1, Cd1, D1, Dd1, E1, F1, Fd1, G1, Gd1, A1, Ad1, H1,
@@ -46,5 +49,84 @@ public class ОктаваTest {
                 "84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, " +
                 "96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107]", ноты.toString());
     }
+
+    @Test
+    public void shouldПолучаюНотуПоСимвольномуПредставлению() {
+        List<Нота> ноты = Arrays.asList(
+                ПерваяОктава.get().get("C"),
+                ПерваяОктава.get().get("Cd"),
+                ПерваяОктава.get().get("D"),
+                ПерваяОктава.get().get("Dd"),
+                ПерваяОктава.get().get("E"),
+                ПерваяОктава.get().get("F"),
+                ПерваяОктава.get().get("Fd"),
+                ПерваяОктава.get().get("G"),
+                ПерваяОктава.get().get("Gd"),
+                ПерваяОктава.get().get("A"),
+                ПерваяОктава.get().get("Ad"),
+                ПерваяОктава.get().get("H"));
+
+        assertEquals("[48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]", ноты.toString());
+    }
+
+    @Test
+    public void shouldНотаHиBОдинаковые() {
+        List<Нота> ноты = Arrays.asList(
+                ПерваяОктава.get().get("B"),
+                ПерваяОктава.get().get("H"));
+
+        assertEquals("[59, 59]", ноты.toString());
+    }
+
+    @Test
+    public void shouldУEНетДиеза() {
+        try {
+            ПерваяОктава.get().get("Ed");
+            fail();
+        } catch (Exception e) {
+            assertEquals("У 'Е' нет диеза", e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldУHНетДиеза() {
+        try {
+            ПерваяОктава.get().get("Hd");
+            fail();
+        } catch (Exception e) {
+            assertEquals("У 'Н' нет диеза", e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldУBНетДиеза() {
+        try {
+            ПерваяОктава.get().get("Bd");
+            fail();
+        } catch (Exception e) {
+            assertEquals("У 'B' нет диеза", e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldУBНетДиеза2() {
+        try {
+            ПерваяОктава.get().get(7, true);
+            fail();
+        } catch (Exception e) {
+            assertEquals("У 'E', 'Н'/'B' нет диезов", e.getMessage());
+        }
+    }
+
+    @Test
+    public void shouldУEНетДиеза2() {
+        try {
+            ПерваяОктава.get().get(3, true);
+            fail();
+        } catch (Exception e) {
+            assertEquals("У 'E', 'Н'/'B' нет диезов", e.getMessage());
+        }
+    }
+
 
 }
