@@ -24,8 +24,9 @@ public class Шаблон {
     }
 
     public Шаблон потом(Звук звук) {
-        apply(всего(), звук);
-        return this.копия();
+        Шаблон копия = this.копия();
+        копия.apply(всего(), звук);
+        return копия;
     }
 
     private double всего() {
