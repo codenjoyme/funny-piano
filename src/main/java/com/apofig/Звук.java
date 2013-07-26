@@ -12,14 +12,11 @@ public class Звук {
 
     private Нота[] ноты;
     private double доля;
+    private int сила = 100;
 
     public Звук(Нота[] ноты, double доля) {
         this.ноты = ноты;
         this.доля = доля;
-    }
-
-    public Шаблон потом(Звук следуюий) {
-        return new Шаблон(this, следуюий);
     }
 
     public List<Нота> ноты() {
@@ -32,5 +29,9 @@ public class Звук {
 
     public Звук изменить(double доля) {
         return new Звук(ноты, this.доля*доля);
+    }
+
+    public int сила() {
+        return сила;
     }
 }

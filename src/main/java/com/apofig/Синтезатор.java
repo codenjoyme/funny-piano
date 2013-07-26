@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class Синтезатор {
 
+    public static final int LENGTH = 1800;
     private MidiChannel midi;
 
     public Синтезатор(MidiChannelFactory midiFactory) {
@@ -62,28 +63,21 @@ public class Синтезатор {
         }
     }
 
-    public void звучать(final int сила, final Шаблон шаблоны) {
-        final LinkedList<Boolean> закончили = new LinkedList<Boolean>();
-        for (final Шаблон шаблон : шаблоны) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    закончили.add(false);
-                    for (Звук звук : шаблон.звуки()) {
-                        звучать(звук, сила);
-                    }
-                    закончили.poll();
+    public void звучать(Шаблон шаблон) {
+        for (int тик = 0; тик <= шаблон.тиков(); тик ++) {
+            List<Действие> звуки = шаблон.get(тик);
+            звучать(звуки);
+            пауза((int)(шаблон.размерТика()*LENGTH));
+        }
+    }
 
-                    Шаблон следующий = шаблоны.следующий();
-                    if (закончили.isEmpty() && следующий != null) {
-                        звучать(сила, следующий);
-                    }
-                }
-            }).start();
+    private void звучать(List<Действие> звуки) {
+        for (Действие действие : звуки) {
+            звучать(действие.нота(), действие.cила());
         }
     }
 
     private void звучать(Звук звук, int сила) {
-        звучать(звук.ноты(), (int)(звук.доля()*1500), сила);
+        звучать(звук.ноты(), (int)(звук.доля()*LENGTH), сила);
     }
 }
