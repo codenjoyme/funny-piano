@@ -23,6 +23,15 @@ public class Действие {
         return сила;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Действие)) return false;
+
+        Действие д = (Действие)o;
+
+        return д.cила() == сила && д.нота() == нота;
+    }
 
     @Override
     public String toString() {

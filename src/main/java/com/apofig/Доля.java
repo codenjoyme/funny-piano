@@ -18,6 +18,10 @@ public class Доля {
         return new Звук(ноты, 1.0/4);
     }
 
+    public static Звук триЧетверти(Нота... ноты) {
+        return new Звук(ноты, 3.0/4);
+    }
+
     public static Звук восьмая(Нота... ноты) {
         return new Звук(ноты, 1.0/8);
     }

@@ -25,7 +25,7 @@ public class Шаблон {
 
     public Шаблон потом(Звук звук) {
         apply(всего(), звук);
-        return this;
+        return this.копия();
     }
 
     private double всего() {
@@ -37,13 +37,15 @@ public class Шаблон {
     }
 
     public Шаблон вместе(Шаблон шаблон) {
-        apply(0, шаблон.копия());
-        return this;
+        Шаблон копия = this.копия();
+        копия.apply(0, шаблон.копия());
+        return копия;
     }
 
     public Шаблон потом(Шаблон шаблон) {
-        apply(всего(), шаблон.копия());
-        return this;
+        Шаблон копия = this.копия();
+        копия.apply(всего(), шаблон.копия());
+        return копия;
     }
 
     private Шаблон копия() {
@@ -106,5 +108,63 @@ public class Шаблон {
     @Override
     public String toString() {
         return map.toString();
+    }
+
+    public double длинна() {
+        return тиков()*размерТика();
+    }
+
+    public Шаблон частьДо(double конец) {
+        double начало = 0.0;
+
+        List<Double> remove = new LinkedList<Double>();
+
+        Шаблон копия = this.копия();
+        for (Map.Entry<Double, List<Действие>> entry : копия.map.entrySet()) {
+            if (entry.getKey() < начало*длинна() || конец*длинна() <= entry.getKey()) {
+                remove.add(entry.getKey());
+            }
+        }
+
+        List<Действие> граница = копия.get(конец*длинна());
+
+        for (Double key : remove) {
+            List<Действие> list = копия.get(key);
+            for (Действие действие : list.toArray(new Действие[0])) {
+                list.remove(действие);
+                Действие стоп = new Действие(действие.нота(), 0);
+
+                if (!граница.contains(стоп)) {
+                    граница.add(стоп);
+                }
+            }
+        }
+
+//        for (Действие награнице : граница.toArray(new Действие[0])) {
+//            boolean естьНачалоУНоты = false;
+//                // TODO в test9 есть обрезание ноты D4 на границе обрезание, но она там и не звучала.
+//                for (Действие действие : копия.all()) {
+//                    if (действие.нота().частота() == награнице.нота().частота() && награнице.cила() == 0) {
+//                        естьНачалоУНоты = true;
+//                        break;
+//                    }
+//                }
+//                if (!естьНачалоУНоты) {
+//                    граница.remove(награнице);
+//                }
+//        }
+
+
+        List<Double> remove2 = new LinkedList<Double>();
+        for (Map.Entry<Double, List<Действие>> entry : копия.map.entrySet()) {
+            if (entry.getValue().isEmpty()) {
+                remove2.add(entry.getKey());
+            }
+        }
+        for (Double key : remove2) {
+            копия.map.remove(key);
+        }
+
+        return копия;
     }
 }
