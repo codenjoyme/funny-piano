@@ -1,6 +1,7 @@
 package com.apofig;
 
 import javax.sound.midi.MidiChannel;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,7 +21,17 @@ public class Синтезатор {
         midi.noteOn(нота.частота(), сила);
         пауза(длительность);
         midi.noteOff(нота.частота());
+    }
+
+    public void звучать(List<Нота> ноты, int длительность, int сила) {
+        System.out.print(ноты + "\n");
+        for (Нота нота : ноты) {
+            midi.noteOn(нота.частота(), сила);
+        }
         пауза(длительность);
+        for (Нота нота : ноты) {
+            midi.noteOff(нота.частота());
+        }
     }
 
     public void звучать(Нота нота, int сила) {
@@ -49,5 +60,30 @@ public class Синтезатор {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void звучать(final int сила, final Шаблон шаблоны) {
+        final LinkedList<Boolean> закончили = new LinkedList<Boolean>();
+        for (final Шаблон шаблон : шаблоны) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    закончили.add(false);
+                    for (Звук звук : шаблон.звуки()) {
+                        звучать(звук, сила);
+                    }
+                    закончили.poll();
+
+                    Шаблон следующий = шаблоны.следующий();
+                    if (закончили.isEmpty() && следующий != null) {
+                        звучать(сила, следующий);
+                    }
+                }
+            }).start();
+        }
+    }
+
+    private void звучать(Звук звук, int сила) {
+        звучать(звук.ноты(), (int)(звук.доля()*1500), сила);
     }
 }
