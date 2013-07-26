@@ -15,6 +15,10 @@ public class Шаблон {
         apply(0, звук);
     }
 
+    public Шаблон(Шаблон шаблон) {
+        apply(0, шаблон);
+    }
+
     public static Шаблон подряд(Звук звук) {
         return new Шаблон(звук);
     }
@@ -33,13 +37,17 @@ public class Шаблон {
     }
 
     public Шаблон вместе(Шаблон шаблон) {
-        apply(0, шаблон);
+        apply(0, шаблон.копия());
         return this;
     }
 
     public Шаблон потом(Шаблон шаблон) {
-        apply(всего(), шаблон);
+        apply(всего(), шаблон.копия());
         return this;
+    }
+
+    private Шаблон копия() {
+        return new Шаблон(this);
     }
 
     public int тиков() {
