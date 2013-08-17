@@ -27,7 +27,7 @@ public class Звук {
         return доля;
     }
 
-    public Звук изменить(double доля) {
+    public Звук увеличить(double доля) {
         return new Звук(ноты, this.доля*доля);
     }
 
