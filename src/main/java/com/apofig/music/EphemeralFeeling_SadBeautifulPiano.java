@@ -1,4 +1,6 @@
-package com.apofig;
+package com.apofig.music;
+
+import com.apofig.*;
 
 import static com.apofig.октавы.ВтораяОктава.*;
 import static com.apofig.октавы.МалаяОктава.*;

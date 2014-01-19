@@ -1,9 +1,11 @@
-package com.apofig;
+package com.apofig.music;
 
-import static com.apofig.октавы.ПерваяОктава.*;
+import com.apofig.*;
+
 import static com.apofig.октавы.ВтораяОктава.*;
-import static com.apofig.октавы.ТретьяОктава.*;
 import static com.apofig.октавы.МалаяОктава.*;
+import static com.apofig.октавы.ПерваяОктава.*;
+import static com.apofig.октавы.ТретьяОктава.*;
 
 /**
  * User: sanja
