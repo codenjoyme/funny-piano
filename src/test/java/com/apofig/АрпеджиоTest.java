@@ -2,12 +2,8 @@ package com.apofig;
 
 import org.junit.Test;
 
+import static com.apofig.октавы.ВтораяОктава.*;
 import static com.apofig.октавы.ПерваяОктава.E4;
-import static org.junit.Assert.*;
-
-import static com.apofig.октавы.ВтораяОктава.E5;
-import static com.apofig.октавы.ВтораяОктава.Gis5;
-import static com.apofig.октавы.ВтораяОктава.H5;
 import static org.junit.Assert.assertEquals;
 
 /**
