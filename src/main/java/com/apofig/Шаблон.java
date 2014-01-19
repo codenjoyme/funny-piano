@@ -168,4 +168,12 @@ public class Шаблон {
 
         return копия;
     }
+
+    public Шаблон повтор(int раз) {   // TODO потестить
+        Шаблон result = this;
+        for (int index = 0; index < раз; index ++) {
+            result = result.потом(this);
+        }
+        return result;
+    }
 }
