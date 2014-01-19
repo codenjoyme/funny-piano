@@ -15,8 +15,13 @@ public class Звук {
     private int сила = 100;
 
     public Звук(Нота[] ноты, double доля) {
+        this(ноты, доля, 100);
+    }
+
+    public Звук(Нота[] ноты, double доля, int сила) {
         this.ноты = ноты;
         this.доля = доля;
+        this.сила = сила;
     }
 
     public List<Нота> ноты() {
