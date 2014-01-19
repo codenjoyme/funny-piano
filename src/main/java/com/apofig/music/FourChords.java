@@ -1,8 +1,13 @@
 package com.apofig.music;
 
-import com.apofig.*;
+import com.apofig.RealMidiChannelFactory;
+import com.apofig.Арпеджио;
+import com.apofig.Синтезатор;
+import com.apofig.Шаблон;
 
 import static com.apofig.октавы.ВтораяОктава.*;
+import static com.apofig.октавы.МалаяОктава.A3;
+import static com.apofig.октавы.МалаяОктава.H3;
 import static com.apofig.октавы.ПерваяОктава.*;
 
 /**
@@ -20,9 +25,18 @@ public class FourChords {
         Шаблон l3 = Арпеджио.get(Cis5, E5, Gis5);
         Шаблон l4 = Арпеджио.get(A4, Cis5, E5);
 
-        Шаблон s1 = l1.потом(l2).потом(l3).потом(l4);//.вместе(Шаблон.подряд(r11).потом(r12).потом(r13).потом(r14));
+        Шаблон s1 = l1.потом(l2).потом(l3).потом(l4);
 
-        синтезатор.звучать(s1);
+        Шаблон r1 = Арпеджио.get2(E4);
+        Шаблон r2 = Арпеджио.get2(H3);
+        Шаблон r3 = Арпеджио.get2(Cis4);
+        Шаблон r4 = Арпеджио.get2(A3);
+
+        Шаблон s2 = r1.потом(r2).потом(r3).потом(r4);
+
+        Шаблон r = s1.вместе(s2);
+
+        синтезатор.звучать(r);
     }
 
 
