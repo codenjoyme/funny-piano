@@ -1,9 +1,6 @@
 package com.apofig.music;
 
-import com.apofig.RealMidiChannelFactory;
-import com.apofig.Арпеджио;
-import com.apofig.Синтезатор;
-import com.apofig.Шаблон;
+import com.apofig.*;
 
 import static com.apofig.октавы.ВтораяОктава.*;
 import static com.apofig.октавы.МалаяОктава.A3;
@@ -20,10 +17,10 @@ public class FourChords {
     public static void main(String[] args) {
         Синтезатор синтезатор = new Синтезатор(new RealMidiChannelFactory());
 
-        Шаблон l1 = Арпеджио.get(E5, Gis5, H5);
-        Шаблон l2 = Арпеджио.get(H4, Dis5, Fis5);
-        Шаблон l3 = Арпеджио.get(Cis5, E5, Gis5);
-        Шаблон l4 = Арпеджио.get(A4, Cis5, E5);
+        Шаблон l1 = Арпеджио.get(Трезвучие.Мажорное.get(E5));
+        Шаблон l2 = Арпеджио.get(Трезвучие.Мажорное.get(H4));
+        Шаблон l3 = Арпеджио.get(Трезвучие.Минорное.get(Cis5));
+        Шаблон l4 = Арпеджио.get(Трезвучие.Мажорное.get(A4));
 
         Шаблон s1 = l1.потом(l2).потом(l3).потом(l4);
 
