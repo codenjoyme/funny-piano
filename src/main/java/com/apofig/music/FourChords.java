@@ -1,13 +1,12 @@
 package com.apofig.music;
 
-import com.apofig.*;
+import com.apofig.RealMidiChannelFactory;
+import com.apofig.Арпеджиатор;
+import com.apofig.Синтезатор;
+import com.apofig.Шаблон;
 
-import java.util.Arrays;
-
-import static com.apofig.октавы.ВтораяОктава.Cis5;
-import static com.apofig.октавы.ВтораяОктава.E5;
-import static com.apofig.октавы.ПерваяОктава.A4;
-import static com.apofig.октавы.ПерваяОктава.H4;
+import static com.apofig.октавы.ВтораяОктава.*;
+import static com.apofig.октавы.ПерваяОктава.*;
 
 /**
  * User: sanja
@@ -20,7 +19,7 @@ public class FourChords {
         Синтезатор синтезатор = new Синтезатор(new RealMidiChannelFactory());
 
         Шаблон r = Арпеджиатор.get3(E5, H4, Cis5, A4);
-//        Шаблон r = Арпеджио.get3(G5, D5, E5, C5);
+//        Шаблон r = Арпеджиатор.get3(G5, D5, E5, C5);
 
         синтезатор.звучать(r.повтор(10));
     }
