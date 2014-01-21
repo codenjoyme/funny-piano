@@ -57,9 +57,23 @@ public class Шаблон {
         return result;
     }
 
+    public Шаблон вместе(Звук... звуки) {
+        Шаблон копия = this.копия();
+        копия.apply(0, Шаблон.подряд(звуки));
+        return копия;
+    }
+
     public Шаблон вместе(Шаблон шаблон) {
         Шаблон копия = this.копия();
         копия.apply(0, шаблон.копия());
+        return копия;
+    }
+
+    public Шаблон потом(Шаблон... шаблоны) {
+        Шаблон копия = this.копия();
+        for (Шаблон шаблон : шаблоны) {
+            копия = копия.потом(шаблон);
+        }
         return копия;
     }
 
@@ -189,9 +203,9 @@ public class Шаблон {
         return копия;
     }
 
-    public Шаблон повтор(int раз) {   // TODO потестить
+    public Шаблон повтор(int раз) {
         Шаблон result = this;
-        for (int index = 0; index < раз; index ++) {
+        for (int index = 1; index < раз; index ++) {
             result = result.потом(this);
         }
         return result;

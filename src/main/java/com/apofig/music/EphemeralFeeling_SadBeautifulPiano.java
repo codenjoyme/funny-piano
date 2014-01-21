@@ -3,10 +3,11 @@ package com.apofig.music;
 import com.apofig.*;
 
 import static com.apofig.октавы.ВтораяОктава.*;
-import static com.apofig.октавы.МалаяОктава.*;
-import static com.apofig.октавы.ПерваяОктава.*;
+import static com.apofig.октавы.ПерваяОктава.Fis4;
+import static com.apofig.октавы.ПерваяОктава.H4;
 import static com.apofig.октавы.ТретьяОктава.*;
-import static com.apofig.октавы.ЧетвертаяОктава.*;
+import static com.apofig.октавы.ЧетвертаяОктава.Cis7;
+import static com.apofig.октавы.ЧетвертаяОктава.D7;
 
 /**
  * User: sanja
@@ -24,11 +25,7 @@ public class EphemeralFeeling_SadBeautifulPiano {
     }
 
     private static Шаблон getIntro() {
-        Шаблон intro12 = getIntro12();
-        Шаблон intro34 = getIntro34();
-        Шаблон intro56 = getIntro56();
-        Шаблон intro78 = getIntro78();
-        return intro12.потом(intro34).потом(intro56).потом(intro78);
+        return getIntro12().потом(getIntro34(), getIntro56(), getIntro78());
     }
 
     private static Шаблон getIntro12() {
@@ -37,18 +34,17 @@ public class EphemeralFeeling_SadBeautifulPiano {
         Звук l3 = Доля.четверть(H5);
         Звук l4 = Доля.четверть(Fis6);
 
-        Шаблон sl1 = Шаблон.подряд(l1).потом(l2).потом(l3).потом(l4);
+        Шаблон sl1 = Шаблон.подряд(l1, l2, l3, l4);
 
         Звук r1 = Доля.половина(D7);
         Звук r2 = Доля.четверть(Cis7);
         Звук r3 = Доля.половина(H6);
         Звук r4 = Доля.триЧетверти(D7);
 
-        Шаблон sr1 = Шаблон.подряд(r1).потом(r2).потом(r3).потом(r4);
+        Шаблон sr1 = Шаблон.подряд(r1, r2, r3, r4);
 
         return sl1.вместе(sr1);
     }
-
 
     public static Шаблон getIntro34() {
         Звук l1 = Доля.четверть(Fis4);
@@ -56,13 +52,13 @@ public class EphemeralFeeling_SadBeautifulPiano {
         Звук l3 = Доля.четверть(Fis5);
         Звук l4 = Доля.четверть(Cis6);
 
-        Шаблон sl1 = Шаблон.подряд(l1).потом(l2).потом(l3).потом(l4);
+        Шаблон sl1 = Шаблон.подряд(l1, l2, l3, l4);
 
         Звук r1 = Доля.половина(Cis7);
         Звук r2 = Доля.четверть(A6);
         Звук r3 = Доля.четверть(Fis6);
 
-        Шаблон sr1 = Шаблон.подряд(r1).потом(r2).потом(r3);
+        Шаблон sr1 = Шаблон.подряд(r1, r2, r3, Пауза.целая());
 
         return sl1.вместе(sr1);
     }
@@ -77,14 +73,14 @@ public class EphemeralFeeling_SadBeautifulPiano {
         Звук l7 = Доля.четверть(H5);
         Звук l8 = Доля.четверть(Fis5);
 
-        Шаблон sl1 = Шаблон.подряд(l1).потом(l2).потом(l3).потом(l4).потом(l5).потом(l6).потом(l7).потом(l8);
+        Шаблон sl1 = Шаблон.подряд(l1, l2, l3, l4, l5, l6, l7, l8);
 
         Звук r1 = Доля.половина(D7, H6, Fis6);
         Звук r2 = Доля.четверть(Cis7);
         Звук r3 = Доля.половина(H6);
         Звук r4 = Доля.триЧетверти(D7);
 
-        Шаблон sr1 = Шаблон.подряд(r1).потом(r2).потом(r3).потом(r4);
+        Шаблон sr1 = Шаблон.подряд(r1, r2, r3, r4);
 
         return sl1.вместе(sr1);
     }
@@ -99,12 +95,12 @@ public class EphemeralFeeling_SadBeautifulPiano {
         Звук l7 = Доля.четверть(Fis5);
         Звук l8 = Доля.четверть(Cis5);
 
-        Шаблон sl1 = Шаблон.подряд(l1).потом(l2).потом(l3).потом(l4).потом(l5).потом(l6).потом(l7).потом(l8);
+        Шаблон sl1 = Шаблон.подряд(l1, l2, l3, l4, l5, l6, l7, l8);
 
         Звук r1 = Доля.триЧетверти(Cis7);
         Звук r2 = Доля.четверть(Fis6).увеличить(5);
 
-        Шаблон sr1 = Шаблон.подряд(r1).потом(r2);
+        Шаблон sr1 = Шаблон.подряд(r1, r2);
 
         return sl1.вместе(sr1);
     }
