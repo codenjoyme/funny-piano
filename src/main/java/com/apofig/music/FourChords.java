@@ -2,6 +2,8 @@ package com.apofig.music;
 
 import com.apofig.*;
 
+import java.util.Arrays;
+
 import static com.apofig.октавы.ВтораяОктава.Cis5;
 import static com.apofig.октавы.ВтораяОктава.E5;
 import static com.apofig.октавы.ПерваяОктава.A4;
@@ -22,8 +24,4 @@ public class FourChords {
 
         синтезатор.звучать(r.повтор(10));
     }
-
-
-
-
 }
