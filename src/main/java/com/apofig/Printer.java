@@ -63,6 +63,7 @@ public class Printer {
 
         String result = "";
         for (Нота нота : ноты) {
+            if (нота.частота() == 0) continue;
             result += map.get(нота) + "|\n";
         }
         return result;

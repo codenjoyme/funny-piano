@@ -56,7 +56,6 @@ public class PrinterTest {
         String string = Printer.toString(шаблон);
 
         assertEquals(
-                "C0(0)    |                 |\n" +
                 "G3(43)   |             +   |\n" +
                 "D4(50)   |++ + ++          |\n" +
                 "Fis4(54) |++ + ++          |\n" +
