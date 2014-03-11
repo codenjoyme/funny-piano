@@ -65,13 +65,23 @@ public class Parser {
                     }
                 }
 
-                if (map.get(time).size() == 0) {
+                if (map.get(time).size() == 0) { // если ничего не добавили, то удаляем
                     map.remove(time);
                 }
+
                 time += tick;
+
+                if (index == ticks.length() - 1 && ticks.charAt(index) != ' ') { // в самом конце надо обрубать все нажатые ноты
+                    if (!map.containsKey(time)) {
+                        map.put(time, new TreeSet<Действие>());
+                    }
+                    map.get(time).add(new Действие(note, 0));
+                }
             }
         }
-        map.put(time, new TreeSet<Действие>());
+        if (!map.containsKey(time)) { // чтобы дотянуть до такта
+            map.put(time, new TreeSet<Действие>());
+        }
         map.get(time).add(new Действие(new Нота(0), 0));
 
         return new Шаблон(map);

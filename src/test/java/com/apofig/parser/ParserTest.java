@@ -28,11 +28,19 @@ public class ParserTest {
         asrtШбл("D4(50)   ║ :+║\n" +
                 "C4(48)   ║+: ║\n", шаблон);
 
+        assertEquals("{0.0=[[C4(48)!100]],\n" +
+                "0.5=[[C4(48)!0], [D4(50)!100]],\n" +
+                "1.0=[[D4(50)!0]]}", шаблон.toString());
+
         String string = Printer.toString(шаблон);
         Шаблон шаблон2 = Parser.parse(string);
 
         asrtШбл("D4(50)   ║ :+║\n" +
                 "C4(48)   ║+: ║\n", шаблон2);
+
+        assertEquals("{0.0=[[C4(48)!100]],\n" +
+                "0.5=[[C4(48)!0], [D4(50)!100]],\n" +
+                "1.0=[[C0(0)!0], [D4(50)!0]]}", шаблон2.toString());
     }
 
     @Test

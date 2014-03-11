@@ -44,7 +44,7 @@ public class PrinterTest {
                 "Fis4(54) ║++ + ++ :        ║\n" +
                 "G3(43)   ║        :+       ║\n" +
                 "D3(38)   ║++ + ++ :        ║\n" +
-                "G2(31)   ║        :     +  ║\n", SuperMario.get1());
+                "G2(31)   ║        :     +  ║\n", ParserTest.get1());
     }
 
     public static void asrtШбл(String expected, Шаблон шаблон) {
