@@ -17,18 +17,34 @@ public class Printer {
             map.put(нота, StringUtils.rightPad(нота.toString(), 9) + "|");
         }
 
+        double время = 0.0;
         for (int тик = 0; тик < шаблон.тиков(); тик ++) {
             List<Действие> действия = шаблон.get(тик);
             рисуемЗвучащиеНотыВТике(map, действия);
             рисуемНеЗвучащиеНотыВТике(ноты, map, действия);
+
+            время += шаблон.размерТика();
+            if (время - Math.ceil(время) == 0) {
+                рисуемТактовуюЧерту(map);
+            }
         }
 
         String result = "";
         for (Нота нота : ноты) {
             if (нота.частота() == 0) continue;
-            result += map.get(нота) + "|\n";
+            String s = map.get(нота);
+            String end = (s.charAt(s.length() - 1) != '|') ? "|" : "";
+            result += s + end + "\n";
         }
         return result;
+    }
+
+    private static void рисуемТактовуюЧерту(Map<Нота, String> map) {
+        for (Нота нота : map.keySet()) {
+            String line = map.get(нота);
+            line += '|';
+            map.put(нота, line);
+        }
     }
 
     private static void рисуемНеЗвучащиеНотыВТике(Set<Нота> ноты, Map<Нота, String> map, List<Действие> действия) {
