@@ -7,7 +7,7 @@ import java.util.List;
  * Date: 20.01.14
  * Time: 0:15
  */
-public class Арпеджиатор {       // TODO переделать в функциональном стиле
+public class Арпеджиатор {
     public static Шаблон get(List<Нота> ноты) {
         Нота n1 = ноты.get(0);
         Нота n2 = ноты.get(1);
