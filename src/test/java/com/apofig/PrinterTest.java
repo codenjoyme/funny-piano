@@ -34,12 +34,13 @@ public class PrinterTest {
     public void shouldSuperMario() {
         asrtШбл("H5(71)   ║        :+       ║\n" +
                 "G5(67)   ║        :+       ║\n" +
-                "E5(64)   ║++-+- +-:        ║\n" +
+                "E5(64)   ║++ +  + :        ║\n" +
                 "C5(60)   ║     +  :        ║\n" +
                 "G4(55)   ║        :+       ║\n" +
-                "Fis4(54) ║++-+-++-:        ║\n" +
-                "D4(50)   ║++-+-++-:        ║\n" +
-                "G3(43)   ║        :     +  ║\n", SuperMario.get1());
+                "Fis4(54) ║++ + ++ :        ║\n" +
+                "G3(43)   ║        :+       ║\n" +
+                "D3(38)   ║++ + ++ :        ║\n" +
+                "G2(31)   ║        :     +  ║\n", SuperMario.get1());
     }
 
     private void asrtШбл(String expected, Шаблон шаблон) {
