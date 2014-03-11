@@ -20,4 +20,14 @@ public class НотаTest {
         assertEquals(19, нота.наПолтонаНиже().частота());
         assertEquals(21, нота.наПолтонаВыше().частота());
     }
+
+    @Test
+    public void shouldParse() {
+        assertEquals("A3(45)", Нота.parse("A3").toString());
+        assertEquals("Dis4(51)", Нота.parse("Dis4").toString());
+        assertEquals("E4(52)", Нота.parse("E4").toString());
+        assertEquals("E4(52)", Нота.parse("QWE(52)").toString());
+        assertEquals("Gis6(80)", Нота.parse("(80)").toString());
+        // TODO Ges4, As4, Es4, Des4, B4 - научиться распознавать их тоже
+    }
 }

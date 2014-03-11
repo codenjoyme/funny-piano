@@ -1,7 +1,11 @@
-package com.apofig;
+package com.apofig.parser;
 
 import com.apofig.music.LetItBe;
 import com.apofig.music.SuperMario;
+import com.apofig.parser.Printer;
+import com.apofig.Доля;
+import com.apofig.Звук;
+import com.apofig.Шаблон;
 import com.apofig.октавы.ПерваяОктава;
 import org.junit.Test;
 
@@ -43,7 +47,7 @@ public class PrinterTest {
                 "G2(31)   ║        :     +  ║\n", SuperMario.get1());
     }
 
-    private void asrtШбл(String expected, Шаблон шаблон) {
+    public static void asrtШбл(String expected, Шаблон шаблон) {
         String string = Printer.toString(шаблон);
         assertEquals(
                 expected, string);

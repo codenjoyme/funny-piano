@@ -11,6 +11,10 @@ public class Шаблон {
 
     private Map<Double, List<Действие>> map = new TreeMap<Double, List<Действие>>();
 
+    public Шаблон(Map<Double, List<Действие>> map) {
+        this.map = map;
+    }
+
     public Шаблон(Звук звук) {
         apply(0, звук);
     }

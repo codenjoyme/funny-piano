@@ -1,5 +1,8 @@
-package com.apofig;
+package com.apofig.parser;
 
+import com.apofig.Действие;
+import com.apofig.Нота;
+import com.apofig.Шаблон;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.*;
@@ -12,12 +15,7 @@ public class Printer {
     public static final char ТАКТОВАЯ_ЧЕРТА = '║';
     private static final char ПОЛУ_ТАКТОВАЯ_ЧЕРТА = ':';
 
-    enum Состояние {
-        Нажали, Держим, Отжали;
-    }
-
     public static String toString(Шаблон шаблон) {
-
         Set<Нота> ноты = шаблон.всеНоты();
         Map<Нота, String> map = new HashMap<Нота, String>();
         for (Нота нота : ноты) {
