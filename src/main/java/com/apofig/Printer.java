@@ -19,46 +19,8 @@ public class Printer {
 
         for (int тик = 0; тик <= шаблон.тиков(); тик ++) {
             List<Действие> действия = шаблон.get(тик);
-
-            Map<Нота, Boolean> тишина = new HashMap<Нота, Boolean>();
-            for (Действие действие : действия) {
-                Нота нота = действие.нота();
-                if (действие.cила() == 0) {
-                    if (!тишина.containsKey(нота)) {
-                        тишина.put(нота, true);
-                    }
-                } else {
-                    тишина.put(нота, false);
-                }
-            }
-
-            for (Map.Entry<Нота, Boolean> entry : тишина.entrySet()) {
-                String line = map.get(entry.getKey());
-                if (entry.getValue()) {
-                    line += ' ';
-                } else {
-                    line += '+';
-                }
-                map.put(entry.getKey(), line);
-            }
-
-            Set<Нота> нотыВТике = new HashSet<Нота>();
-            for (Действие действие : действия) {
-                нотыВТике.add(действие.нота());
-            }
-
-            Set<Нота> остальныеНоты = new HashSet<Нота>();
-            for (Нота нота : ноты) {
-                if (!нотыВТике.contains(нота)) {
-                    остальныеНоты.add(нота);
-                }
-            }
-
-            for (Нота нота : остальныеНоты) {
-                String line = map.get(нота);
-                line += ' ';
-                map.put(нота, line);
-            }
+            рисуемЗвучащиеНотыВТике(map, действия);
+            рисуемНеЗвучащиеНотыВТике(ноты, map, действия);
         }
 
         String result = "";
@@ -67,5 +29,54 @@ public class Printer {
             result += map.get(нота) + "|\n";
         }
         return result;
+    }
+
+    private static void рисуемНеЗвучащиеНотыВТике(Set<Нота> ноты, Map<Нота, String> map, List<Действие> действия) {
+        Set<Нота> нотыВТике = new HashSet<Нота>();
+        for (Действие действие : действия) {
+            нотыВТике.add(действие.нота());
+        }
+
+        Set<Нота> остальныеНоты = new HashSet<Нота>();
+        for (Нота нота : ноты) {
+            if (!нотыВТике.contains(нота)) {
+                остальныеНоты.add(нота);
+            }
+        }
+
+        for (Нота нота : остальныеНоты) {
+            String line = map.get(нота);
+            line += ' ';
+            map.put(нота, line);
+        }
+    }
+
+    private static void рисуемЗвучащиеНотыВТике(Map<Нота, String> map, List<Действие> действия) {
+        Map<Нота, Boolean> тишина = какиеНотыТутНеЗвучат(действия);
+
+        for (Map.Entry<Нота, Boolean> entry : тишина.entrySet()) {
+            String line = map.get(entry.getKey());
+            if (entry.getValue()) {
+                line += ' ';
+            } else {
+                line += '+';
+            }
+            map.put(entry.getKey(), line);
+        }
+    }
+
+    private static Map<Нота, Boolean> какиеНотыТутНеЗвучат(List<Действие> действия) {
+        Map<Нота, Boolean> тишина = new HashMap<Нота, Boolean>();
+        for (Действие действие : действия) {
+            Нота нота = действие.нота();
+            if (действие.cила() == 0) {
+                if (!тишина.containsKey(нота)) {
+                    тишина.put(нота, true);
+                }
+            } else {
+                тишина.put(нота, false);
+            }
+        }
+        return тишина;
     }
 }
