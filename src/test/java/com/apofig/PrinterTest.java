@@ -22,8 +22,8 @@ public class PrinterTest {
         String string = Printer.toString(шаблон);
 
         assertEquals(
-                "C4(48)   |+  |\n" +
-                "D4(50)   | + |\n", string);
+                "C4(48)   |+ |\n" +
+                "D4(50)   | +|\n", string);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class PrinterTest {
         String string = Printer.toString(шаблон);
 
         assertEquals(
-                "C4(48)   |++ |\n", string);
+                "C4(48)   |++|\n", string);
     }
 
     @Test
@@ -56,13 +56,13 @@ public class PrinterTest {
         String string = Printer.toString(шаблон);
 
         assertEquals(
-                "G3(43)   |             +   |\n" +
-                "D4(50)   |++ + ++          |\n" +
-                "Fis4(54) |++ + ++          |\n" +
-                "G4(55)   |        +        |\n" +
-                "C5(60)   |     +           |\n" +
-                "E5(64)   |++ +  +          |\n" +
-                "G5(67)   |        +        |\n" +
-                "H5(71)   |        +        |\n", string);
+                "G3(43)   |             +  |\n" +
+                "D4(50)   |++ + ++         |\n" +
+                "Fis4(54) |++ + ++         |\n" +
+                "G4(55)   |        +       |\n" +
+                "C5(60)   |     +          |\n" +
+                "E5(64)   |++ +  +         |\n" +
+                "G5(67)   |        +       |\n" +
+                "H5(71)   |        +       |\n", string);
     }
 }
