@@ -1,5 +1,7 @@
 package com.apofig;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.util.*;
 
 /**
@@ -12,7 +14,7 @@ public class Printer {
         Set<Нота> ноты = шаблон.всеНоты();
         Map<Нота, String> map = new HashMap<Нота, String>();
         for (Нота нота : ноты) {
-            map.put(нота, нота.toString() + "|");
+            map.put(нота, StringUtils.rightPad(нота.toString(), 9) + "|");
         }
 
         for (int тик = 0; тик <= шаблон.тиков(); тик ++) {
