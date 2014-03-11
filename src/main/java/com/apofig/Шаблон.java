@@ -146,7 +146,7 @@ public class Шаблон {
 
     @Override
     public String toString() {
-        return map.toString();
+        return map.toString().replaceAll("\\]\\], ", "]],\n").replaceAll("\\[\\], ", "[],\n");
     }
 
     public double длинна() {
