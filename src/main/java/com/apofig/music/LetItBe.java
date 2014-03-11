@@ -16,7 +16,10 @@ public class LetItBe {
 
     public static void main(String[] args) {
         Синтезатор синтезатор = new Синтезатор(new RealMidiChannelFactory());
+        синтезатор.звучать(get());
+    }
 
+    public static Шаблон get() {
         Звук l1 = Доля.половина(G4, C5, E5);
 
         Звук r11 = Доля.четверть(C3);
@@ -85,7 +88,7 @@ public class LetItBe {
         Шаблон s73 = Шаблон.подряд(ee8, ee4, ff4.увеличить(1.5), ee8, ee4, d4.увеличить(2), ee8, d4, c8.увеличить(4));
         Шаблон s7 = s7r.вместе(s71.потом(s72, s73));
 
-        синтезатор.звучать(ss1.потом(ss2, s7r.вместе(s7)));
+        return ss1.потом(ss2, s7r.вместе(s7));
     }
 
 

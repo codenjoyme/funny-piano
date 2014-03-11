@@ -1,5 +1,7 @@
 package com.apofig;
 
+import com.apofig.music.LetItBe;
+import com.apofig.music.SuperMario;
 import com.apofig.октавы.ПерваяОктава;
 import org.junit.Test;
 
@@ -38,22 +40,8 @@ public class PrinterTest {
     }
 
     @Test
-    public void should222() {
-        Звук l1_16 = Доля.шестнадцатая(Fis4, E5);
-        Звук l2_8 = l1_16.увеличить(2);
-        Звук l3_16 = Доля.шестнадцатая(Fis4, C5);
-        Звук l4_16 = Доля.шестнадцатая(G4, H5, G5);
-
-        Звук r1_16 = Доля.шестнадцатая(D4);
-        Звук r2_8 = r1_16.увеличить(2);
-        Звук r3_16 = Доля.шестнадцатая(G4);
-
-        Звук r4_16 = Доля.шестнадцатая(G3);
-
-        Шаблон шаблон = Шаблон.подряд(l1_16, l2_8, l2_8, l3_16, l2_8, l4_16).вместе(r1_16, r2_8, r2_8, r1_16, r2_8, r3_16)
-                .потом(Пауза.четверть(), r4_16, Пауза.восьмая());
-
-        String string = Printer.toString(шаблон);
+    public void shouldSuperMario() {
+        String string = Printer.toString(SuperMario.get1());
 
         assertEquals(
                 "G3(43)   |             +  |\n" +
@@ -64,5 +52,35 @@ public class PrinterTest {
                 "E5(64)   |++ +  +         |\n" +
                 "G5(67)   |        +       |\n" +
                 "H5(71)   |        +       |\n", string);
+    }
+
+
+    @Test
+    public void shouldLetItBe() {
+        String string = Printer.toString(LetItBe.get());
+
+        assertEquals(
+                "C3(36)   |+   +       +                                                   +   +       +                   +   +       +   +   +   +   +                                                                                                                                   |\n" +
+                "D3(38)   |                                                            +                                                                                                                                                                                                   |\n" +
+                "F3(41)   |               +                                +   +                          +                                                                                                                                                                                |\n" +
+                "G3(43)   |                +   +       +               +                                   +   +       +                                                                                                                                                                   |\n" +
+                "A3(45)   |                                +   +                                                                                                                                                                                                                           |\n" +
+                "C4(48)   |                                                                                                                                                                                                                                                +               |\n" +
+                "D4(50)   |                                                                                                                                                                                                                                            +                   |\n" +
+                "E4(52)   |                                                                                                                                                                                                                                        +       +               |\n" +
+                "F4(53)   |                                                +       +                                                                                                                       +       +                                       +           +                   |\n" +
+                "G4(55)   |+       +       +       +                   +                   +       +       +       +                                       +       +       +       +                                       +       +       +       +               +                       |\n" +
+                "A4(57)   |                                +       +       +       +                                                                                                       +       +       +       +                                       +                               |\n" +
+                "H4(59)   |                +       +                                                       +       +                                                       +       +                                                       +       +                                       |\n" +
+                "C5(60)   |+       +                       +       +   +                   +       +                       +       +   +   +               +       +                       +       +       +       +       +       +                       +       +   +   +               |\n" +
+                "D5(62)   |                +       +                               +                       +       +                   +                                   +       +                                                       +       +                                       |\n" +
+                "E5(64)   |+       +                       +       +   +   +               +       +                               +       +               +       + +                     +       +                       +       +                                                       |\n" +
+                "F5(65)   |                                                                                                +           +                                                                                                                                                   |\n" +
+                "G5(67)   |                                                                                                        +                   + + +   +         +     +                                                                                                           |\n" +
+                "A5(69)   |                                                                                                +                                     +                                                                                                                         |\n" +
+                "C6(72)   |                                                                                                                                                        +                           + +                                         +                               |\n" +
+                "D6(74)   |                                                                                                                                                          +               +   +                                   +         +                                   |\n" +
+                "E6(76)   |                                                                                                                                                                + + +                           + +         + +           +                                     |\n" +
+                "F6(77)   |                                                                                                                                                                                                      +                                                         |\n", string);
     }
 }
