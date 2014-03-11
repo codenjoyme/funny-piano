@@ -44,37 +44,35 @@ public class Parser {
             allNoteTacts.put(note, tacts);
         }
 
-        Map<Double, List<Действие>> map = new TreeMap<Double, List<Действие>>();
-
+        Map<Double, Set<Действие>> map = new TreeMap<Double, Set<Действие>>();
+        double time = 0.0;
         for (Map.Entry<Нота, String> entry : allNoteTacts.entrySet()) {
             Нота note = entry.getKey();
             String ticks = entry.getValue();
 
-            double time = 0.0;
+            time = 0.0;
             for (int index = 0; index < ticks.length(); index++) {
                 if (!map.containsKey(time)) {
-                    map.put(time, new LinkedList<Действие>());
+                    map.put(time, new TreeSet<Действие>());
                 }
 
                 if (ticks.charAt(index) != '-') {
+                    if (index > 0 && ticks.charAt(index - 1) != ' ') {
+                        map.get(time).add(new Действие(note, 0));
+                    }
                     if (ticks.charAt(index) == '+') {
                         map.get(time).add(new Действие(note, 100));
-                    } else if (ticks.charAt(index) == ' ') {
-                        if (index > 0 && ticks.charAt(index - 1) != ' ') {
-                            map.get(time).add(new Действие(note, 0));
-                        }
                     }
                 }
 
+                if (map.get(time).size() == 0) {
+                    map.remove(time);
+                }
                 time += tick;
             }
-            { // TODO как бы все ноты отпускаем в конце для того чтобы паузу выдержать, что не ок
-                if (!map.containsKey(time)) {
-                    map.put(time, new LinkedList<Действие>());
-                }
-                map.get(time).add(new Действие(note, 0));
-            }
         }
+        map.put(time, new TreeSet<Действие>());
+        map.get(time).add(new Действие(new Нота(0), 0));
 
         return new Шаблон(map);
     }

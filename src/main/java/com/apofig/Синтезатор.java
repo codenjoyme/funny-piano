@@ -1,8 +1,7 @@
 package com.apofig;
 
 import javax.sound.midi.MidiChannel;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * User: sanja
@@ -24,7 +23,7 @@ public class Синтезатор {
         midi.noteOff(нота.частота());
     }
 
-    public void звучать(List<Нота> ноты, int длительность, int сила) {
+    public void звучать(Set<Нота> ноты, int длительность, int сила) {
         System.out.print(ноты + "\n");
         for (Нота нота : ноты) {
             midi.noteOn(нота.частота(), сила);
@@ -39,7 +38,7 @@ public class Синтезатор {
         midi.noteOn(нота.частота(), сила);
     }
 
-    public void звучать(List<Нота> аккорд, int сила) {
+    public void звучать(Set<Нота> аккорд, int сила) {
         for (Нота нота : аккорд) {
             звучать(нота, сила);
         }
@@ -52,7 +51,7 @@ public class Синтезатор {
     }
 
     public void звучать(Нота отНоты, Трезвучие трезвучие, int сила) {
-        звучать(трезвучие.get(отНоты), сила);
+        звучать(new TreeSet<Нота>(трезвучие.get(отНоты)), сила);
     }
 
     private void пауза(int длительность) {
@@ -65,13 +64,13 @@ public class Синтезатор {
 
     public void звучать(Шаблон шаблон) {
         for (int тик = 0; тик <= шаблон.тиков(); тик ++) {
-            List<Действие> звуки = шаблон.get(тик);
+            Set<Действие> звуки = шаблон.get(тик);
             звучать(звуки);
             пауза((int)(шаблон.размерТика()*LENGTH));
         }
     }
 
-    private void звучать(List<Действие> звуки) {
+    private void звучать(Set<Действие> звуки) {
         for (Действие действие : звуки) {
             звучать(действие.нота(), действие.cила());
         }

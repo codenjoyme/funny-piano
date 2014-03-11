@@ -1,7 +1,9 @@
 package com.apofig;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * User: sanja
@@ -24,8 +26,8 @@ public class Звук {
         this.сила = сила;
     }
 
-    public List<Нота> ноты() {
-        return Arrays.asList(ноты);
+    public Set<Нота> ноты() {
+        return new HashSet<Нота>(Arrays.asList(ноты));
     }
 
     public double доля() {

@@ -9,9 +9,9 @@ import java.util.*;
  */
 public class Шаблон {
 
-    private Map<Double, List<Действие>> map = new TreeMap<Double, List<Действие>>();
+    private Map<Double, Set<Действие>> map = new TreeMap<Double, Set<Действие>>();
 
-    public Шаблон(Map<Double, List<Действие>> map) {
+    public Шаблон(Map<Double, Set<Действие>> map) {
         this.map = map;
     }
 
@@ -55,7 +55,7 @@ public class Шаблон {
 
     private double всего() {
         double result = 0;
-        for (Map.Entry<Double, List<Действие>> entry : map.entrySet()) {
+        for (Map.Entry<Double, Set<Действие>> entry : map.entrySet()) {
             result = Math.max(result, entry.getKey());
         }
         return result;
@@ -95,18 +95,18 @@ public class Шаблон {
         return (int)(всего()/размерТика());
     }
 
-    public List<Действие> get(int тик) {
-        List<Действие> list = map.get(размерТика() * тик);
-        if (list == null) {
-            list = new LinkedList<Действие>();
+    public Set<Действие> get(int тик) {
+        Set<Действие> set = map.get(размерТика() * тик);
+        if (set == null) {
+            set = new TreeSet<Действие>();
         }
-        return list;
+        return set;
     }
 
     public double размерТика() {
         double result = всего();
         double last = 0;
-        for (Map.Entry<Double, List<Действие>> entry : map.entrySet()) {
+        for (Map.Entry<Double, Set<Действие>> entry : map.entrySet()) {
             if (entry.getKey() == 0) {
                 continue;
             }
@@ -118,28 +118,28 @@ public class Шаблон {
     }
 
     private void apply(double смещение, Шаблон шаблон) {
-        for (Map.Entry<Double, List<Действие>> entry : шаблон.map.entrySet()) {
+        for (Map.Entry<Double, Set<Действие>> entry : шаблон.map.entrySet()) {
             get(entry.getKey() + смещение).addAll(entry.getValue());
         }
     }
 
     private void apply(double смещение, Звук звук) {
-        List<Нота> ноты = звук.ноты();
+        Set<Нота> ноты = звук.ноты();
         int сила = звук.сила();
 
         apply(смещение, ноты, сила);
         apply(смещение + звук.доля(), ноты, 0);
     }
 
-    private void apply(double смещение, List<Нота> ноты, int сила) {
+    private void apply(double смещение, Set<Нота> ноты, int сила) {
         for (Нота нота : ноты) {
             get(смещение).add(new Действие(нота, сила));
         }
     }
 
-    private List<Действие> get(double смещение) {
+    private Set<Действие> get(double смещение) {
         if (map.get(смещение) == null) {
-            map.put(смещение, new LinkedList<Действие>());
+            map.put(смещение, new TreeSet<Действие>());
         }
         return map.get(смещение);
     }
@@ -159,18 +159,18 @@ public class Шаблон {
         List<Double> remove = new LinkedList<Double>();
 
         Шаблон копия = this.копия();
-        for (Map.Entry<Double, List<Действие>> entry : копия.map.entrySet()) {
+        for (Map.Entry<Double, Set<Действие>> entry : копия.map.entrySet()) {
             if (entry.getKey() < начало*длинна() || конец*длинна() <= entry.getKey()) {
                 remove.add(entry.getKey());
             }
         }
 
-        List<Действие> граница = копия.get(конец*длинна());
+        Set<Действие> граница = копия.get(конец*длинна());
 
         for (Double key : remove) {
-            List<Действие> list = копия.get(key);
-            for (Действие действие : list.toArray(new Действие[0])) {
-                list.remove(действие);
+            Set<Действие> set = копия.get(key);
+            for (Действие действие : set.toArray(new Действие[0])) {
+                set.remove(действие);
                 Действие стоп = new Действие(действие.нота(), 0);
 
                 if (!граница.contains(стоп)) {
@@ -195,7 +195,7 @@ public class Шаблон {
 
 
         List<Double> remove2 = new LinkedList<Double>();
-        for (Map.Entry<Double, List<Действие>> entry : копия.map.entrySet()) {
+        for (Map.Entry<Double, Set<Действие>> entry : копия.map.entrySet()) {
             if (entry.getValue().isEmpty()) {
                 remove2.add(entry.getKey());
             }
@@ -217,7 +217,7 @@ public class Шаблон {
 
     public Set<Нота> всеНоты() {
         Set<Нота> ноты = new TreeSet<Нота>();
-        for (List<Действие> действия : map.values()) {
+        for (Set<Действие> действия : map.values()) {
             for (Действие действие : действия) {
                 ноты.add(действие.нота());
             }

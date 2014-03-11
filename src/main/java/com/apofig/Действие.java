@@ -5,7 +5,7 @@ package com.apofig;
  * Date: 26.07.13
  * Time: 22:05
  */
-public class Действие {
+public class Действие implements Comparable<Действие> {
 
     private Нота нота;
     private int сила;
@@ -24,6 +24,11 @@ public class Действие {
     }
 
     @Override
+    public int hashCode() {
+        return 31 * нота.hashCode() + сила;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o == null) return false;
         if (!(o instanceof Действие)) return false;
@@ -36,5 +41,14 @@ public class Действие {
     @Override
     public String toString() {
         return String.format("[%s!%s]", нота, сила);
+    }
+
+    @Override
+    public int compareTo(Действие o) {
+        int result = нота.compareTo(o.нота);
+        if (result == 0) {
+            result = сила - o.сила;
+        }
+        return result;
     }
 }
