@@ -10,6 +10,7 @@ import java.util.*;
 public class Printer {
 
     public static final char ТАКТОВАЯ_ЧЕРТА = '║';
+    private static final char ПОЛУ_ТАКТОВАЯ_ЧЕРТА = ':';
 
     enum Состояние {
         Нажали, Держим, Отжали;
@@ -49,7 +50,9 @@ public class Printer {
 
             время += шаблон.размерТика();
             if (время - Math.ceil(время) == 0) {
-                рисуемТактовуюЧерту(map);
+                рисуемТактовуюЧерту(map, ТАКТОВАЯ_ЧЕРТА);
+            } else if (время/0.5 - Math.ceil(время/0.5) == 0) {
+                рисуемТактовуюЧерту(map, ПОЛУ_ТАКТОВАЯ_ЧЕРТА);
             }
         }
 
@@ -63,10 +66,10 @@ public class Printer {
         return result;
     }
 
-    private static void рисуемТактовуюЧерту(Map<Нота, String> map) {
+    private static void рисуемТактовуюЧерту(Map<Нота, String> map, char черта) {
         for (Нота нота : map.keySet()) {
             String line = map.get(нота);
-            line += ТАКТОВАЯ_ЧЕРТА;
+            line += черта;
             map.put(нота, line);
         }
     }
