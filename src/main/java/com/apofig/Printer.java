@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class Printer {
 
+    public static final char ТАКТОВАЯ_ЧЕРТА = '║';
+
     enum Состояние {
         Нажали, Держим, Отжали;
     }
@@ -18,7 +20,7 @@ public class Printer {
         Set<Нота> ноты = шаблон.всеНоты();
         Map<Нота, String> map = new HashMap<Нота, String>();
         for (Нота нота : ноты) {
-            map.put(нота, StringUtils.rightPad(нота.toString(), 9) + "|");
+            map.put(нота, StringUtils.rightPad(нота.toString(), 9) + ТАКТОВАЯ_ЧЕРТА);
         }
 
         Map<Нота, Состояние> состояние = new HashMap<Нота, Состояние>();
@@ -55,8 +57,8 @@ public class Printer {
         for (Нота нота : ноты) {
             if (нота.частота() == 0) continue;
             String s = map.get(нота);
-            String end = (s.charAt(s.length() - 1) != '|') ? "|" : "";
-            result += s + end + "\n";
+            String end = (s.charAt(s.length() - 1) != ТАКТОВАЯ_ЧЕРТА) ? "" + ТАКТОВАЯ_ЧЕРТА : "";
+            result = s + end + "\n" + result;
         }
         return result;
     }
@@ -64,7 +66,7 @@ public class Printer {
     private static void рисуемТактовуюЧерту(Map<Нота, String> map) {
         for (Нота нота : map.keySet()) {
             String line = map.get(нота);
-            line += '|';
+            line += ТАКТОВАЯ_ЧЕРТА;
             map.put(нота, line);
         }
     }
@@ -96,3 +98,4 @@ public class Printer {
         return неДергалиНоты;
     }
 }
+
