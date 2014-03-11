@@ -4,10 +4,8 @@ import com.apofig.октавы.ПерваяОктава;
 import org.junit.Test;
 
 import static com.apofig.октавы.ВтораяОктава.*;
-import static com.apofig.октавы.МалаяОктава.G3;
-import static com.apofig.октавы.ПерваяОктава.D4;
-import static com.apofig.октавы.ПерваяОктава.G4;
-import static com.apofig.октавы.ПерваяОктава.Ges4;
+import static com.apofig.октавы.МалаяОктава.*;
+import static com.apofig.октавы.ПерваяОктава.*;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -30,9 +28,20 @@ public class PrinterTest {
 
     @Test
     public void should2() {
-        Звук l1_16 = Доля.шестнадцатая(Ges4, E5);
+        Звук c = Доля.половина(ПерваяОктава.C4);
+        Шаблон шаблон = Шаблон.подряд(c).потом(c);
+
+        String string = Printer.toString(шаблон);
+
+        assertEquals(
+                "C4(48)   |++ |\n", string);
+    }
+
+    @Test
+    public void should222() {
+        Звук l1_16 = Доля.шестнадцатая(Fis4, E5);
         Звук l2_8 = l1_16.увеличить(2);
-        Звук l3_16 = Доля.шестнадцатая(Ges4, C5);
+        Звук l3_16 = Доля.шестнадцатая(Fis4, C5);
         Звук l4_16 = Доля.шестнадцатая(G4, H5, G5);
 
         Звук r1_16 = Доля.шестнадцатая(D4);
@@ -49,11 +58,11 @@ public class PrinterTest {
         assertEquals(
                 "C0(0)    |                 |\n" +
                 "G3(43)   |             +   |\n" +
-                "D4(50)   |+ +  +  + +          |\n" +
-                "Fis4(54) |+ +  +  + +          |\n" +
-                "G4(55)   |        ++         |\n" +
+                "D4(50)   |++ + ++          |\n" +
+                "Fis4(54) |++ + ++          |\n" +
+                "G4(55)   |        +        |\n" +
                 "C5(60)   |     +           |\n" +
-                "E5(64)   |+ +  +  +          |\n" +
+                "E5(64)   |++ +  +          |\n" +
                 "G5(67)   |        +        |\n" +
                 "H5(71)   |        +        |\n", string);
     }

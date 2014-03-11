@@ -20,15 +20,26 @@ public class Printer {
         for (int тик = 0; тик <= шаблон.тиков(); тик ++) {
             List<Действие> действия = шаблон.get(тик);
 
+            Map<Нота, Boolean> тишина = new HashMap<Нота, Boolean>();
             for (Действие действие : действия) {
                 Нота нота = действие.нота();
-                String line = map.get(нота);
                 if (действие.cила() == 0) {
+                    if (!тишина.containsKey(нота)) {
+                        тишина.put(нота, true);
+                    }
+                } else {
+                    тишина.put(нота, false);
+                }
+            }
+
+            for (Map.Entry<Нота, Boolean> entry : тишина.entrySet()) {
+                String line = map.get(entry.getKey());
+                if (entry.getValue()) {
                     line += ' ';
                 } else {
                     line += '+';
                 }
-                map.put(нота, line);
+                map.put(entry.getKey(), line);
             }
 
             Set<Нота> нотыВТике = new HashSet<Нота>();
