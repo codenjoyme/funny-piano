@@ -210,4 +210,14 @@ public class Шаблон {
         }
         return result;
     }
+
+    public Set<Нота> всеНоты() {
+        Set<Нота> ноты = new TreeSet<Нота>();
+        for (List<Действие> действия : map.values()) {
+            for (Действие действие : действия) {
+                ноты.add(действие.нота());
+            }
+        }
+        return ноты;
+    }
 }

@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Date: 16.07.13
  * Time: 23:01
  */
-public class Нота {
+public class Нота implements Comparable<Нота>{
     private int частота;
 
     public Нота(int частота) {
@@ -82,5 +82,10 @@ public class Нота {
 
     public Нота наПолтонаВыше() {
         return выше(Интервал.Полутон);
+    }
+
+    @Override
+    public int compareTo(Нота o) {
+        return частота - o.частота;
     }
 }
