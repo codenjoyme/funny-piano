@@ -26,4 +26,7 @@ public class Доля {
         return new Звук(ноты, 1.0/8);
     }
 
+    public static Звук шестнадцатая(Нота... ноты) {
+        return new Звук(ноты, 1.0/16);
+    }
 }

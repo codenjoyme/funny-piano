@@ -29,4 +29,8 @@ public class Пауза {
     public static Звук восьмая() {
         return new Звук(тишина, 1.0 / 8, 0);
     }
+
+    public static Звук шестнадцатая() {
+        return new Звук(тишина, 1.0 / 16, 0);
+    }
 }
