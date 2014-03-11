@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class Синтезатор {
 
-    public static final int LENGTH = 2000;
+    public static final int LENGTH = 3500;
     private MidiChannel midi;
 
     public Синтезатор(MidiChannelFactory midiFactory) {
