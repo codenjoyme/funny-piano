@@ -13,8 +13,8 @@ public class SuperMario {
     public static void main(String[] args) {
         Синтезатор синтезатор = new Синтезатор(new RealMidiChannelFactory());
 
-        синтезатор.звучать(get4());
-//        синтезатор.звучать(get1().потом(get2(), get3(), get4()));
+//        синтезатор.звучать(get4());
+        синтезатор.звучать(get1().потом(get2(), get3(), get4()));
     }
 
     public static Шаблон get1() {
