@@ -96,11 +96,7 @@ public class Шаблон {
     }
 
     public Set<Действие> get(int тик) {
-        Set<Действие> set = map.get(размерТика() * тик);
-        if (set == null) {
-            set = new TreeSet<Действие>();
-        }
-        return set;
+        return get(размерТика() * тик);
     }
 
     public double размерТика() {
@@ -138,6 +134,14 @@ public class Шаблон {
     }
 
     private Set<Действие> get(double смещение) {
+        // поиск максимально близкого ключа (а то дабл дробная часть может прыгать)
+        for (Double key : map.keySet()) {
+            if (Math.abs(key - смещение) < 0.0000001) { // TODO не использовать тут дробные штуки, придумать альтернативу
+                смещение = key;
+                break;
+            }
+        }
+
         if (map.get(смещение) == null) {
             map.put(смещение, new TreeSet<Действие>());
         }

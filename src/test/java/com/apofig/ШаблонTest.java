@@ -1,5 +1,6 @@
 package com.apofig;
 
+import com.apofig.parser.Parser;
 import com.apofig.октавы.ПерваяОктава;
 import org.junit.Test;
 
@@ -271,4 +272,15 @@ public class ШаблонTest {
         assertНоты(шаблон2, "[C4(48), D4(50), A4(57)]");
     }
 
+    @Test
+    public void test10() {
+        Шаблон шаблон = Parser.parse("H5  ║+     :+     ║\n");
+
+        assertEquals("[[H5(71)!100]]", шаблон.get(0).toString());
+        assertEquals("[[H5(71)!0]]",   шаблон.get(1).toString());
+        assertEquals("[]",             шаблон.get(5).toString());
+        assertEquals("[[H5(71)!100]]", шаблон.get(6).toString());
+        assertEquals("[[H5(71)!0]]",   шаблон.get(7).toString());
+        assertEquals("[]",             шаблон.get(8).toString());
+    }
 }
