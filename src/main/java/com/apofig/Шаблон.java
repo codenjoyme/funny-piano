@@ -9,10 +9,18 @@ import java.util.*;
  */
 public class Шаблон {
 
-    private Map<Double, Set<Действие>> map = new TreeMap<Double, Set<Действие>>();
+    private Map<Double, Set<Действие>> map = new TreeMap<>();
 
     public Шаблон(Map<Double, Set<Действие>> map) {
         this.map = map;
+    }
+
+    private Шаблон() {
+        // do nothing
+    }
+
+    public static Шаблон пустой() {
+        return new Шаблон();
     }
 
     public Шаблон(Звук звук) {

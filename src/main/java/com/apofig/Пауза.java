@@ -10,27 +10,31 @@ import java.util.Arrays;
 public class Пауза {
     private static Нота[] тишина = new Нота[]{new Нота(0)};
 
+    public static Звук взять(double длительность) {
+        return new Звук(тишина, длительность, 0);
+    }
+
     public static Звук целая() {
-        return new Звук(тишина, 1.0, 0);
+        return взять(1.0);
     }
 
     public static Звук половина() {
-        return new Звук(тишина, 1.0 / 2, 0);
+        return взять(1.0 / 2);
     }
 
     public static Звук четверть() {
-        return new Звук(тишина, 1.0 / 4, 0);
+        return взять(1.0 / 4);
     }
 
     public static Звук триЧетверти() {
-        return new Звук(тишина, 3.0 / 4, 0);
+        return взять(3.0 / 4);
     }
 
     public static Звук восьмая() {
-        return new Звук(тишина, 1.0 / 8, 0);
+        return взять(1.0 / 8);
     }
 
     public static Звук шестнадцатая() {
-        return new Звук(тишина, 1.0 / 16, 0);
+        return взять(1.0 / 16);
     }
 }

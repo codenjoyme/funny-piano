@@ -65,11 +65,27 @@ public class Нота implements Comparable<Нота>{
     }
 
     public Нота наОктавуНиже() {
-        return ниже(Интервал.ЧистаяОктава);
+        return наОктавуНиже(1);
+    }
+
+    public Нота наОктавуНиже(int октав) {
+        Нота result = this;
+        for (int i = 0; i < октав; i++) {
+            result = result.ниже(Интервал.ЧистаяОктава);
+        }
+        return result;
     }
 
     public Нота наОктавуВыше() {
-        return выше(Интервал.ЧистаяОктава);
+        return наОктавуВыше(1);
+    }
+
+    public Нота наОктавуВыше(int октав) {
+        Нота result = this;
+        for (int i = 0; i < октав; i++) {
+            result = result.выше(Интервал.ЧистаяОктава);
+        }
+        return result;
     }
 
     public Нота выше(Интервал интервал) {

@@ -2,7 +2,6 @@ package com.apofig;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,16 +12,16 @@ import java.util.Set;
 public class Звук {
 
     private Нота[] ноты;
-    private double доля;
+    private double длительность;
     private int сила = 100;
 
-    public Звук(Нота[] ноты, double доля) {
-        this(ноты, доля, 100);
+    public Звук(Нота[] ноты, double длительность) {
+        this(ноты, длительность, 100);
     }
 
-    public Звук(Нота[] ноты, double доля, int сила) {
+    public Звук(Нота[] ноты, double длительность, int сила) {
         this.ноты = ноты;
-        this.доля = доля;
+        this.длительность = длительность;
         this.сила = сила;
     }
 
@@ -31,11 +30,11 @@ public class Звук {
     }
 
     public double доля() {
-        return доля;
+        return длительность;
     }
 
     public Звук увеличить(double доля) {
-        return new Звук(ноты, this.доля*доля);
+        return new Звук(ноты, this.длительность *доля);
     }
 
     public int сила() {

@@ -17,12 +17,12 @@ public class Printer {
 
     public static String toString(Шаблон шаблон) {
         Set<Нота> ноты = шаблон.всеНоты();
-        Map<Нота, String> map = new HashMap<Нота, String>();
+        Map<Нота, String> map = new HashMap<>();
         for (Нота нота : ноты) {
             map.put(нота, StringUtils.rightPad(нота.toString(), 9) + ТАКТОВАЯ_ЧЕРТА);
         }
 
-        Map<Нота, Состояние> состояние = new HashMap<Нота, Состояние>();
+        Map<Нота, Состояние> состояние = new HashMap<>();
         double время = 0.0;
         for (int тик = 0; тик < шаблон.тиков(); тик ++) {
             Set<Действие> действия = шаблон.get(тик);
@@ -85,13 +85,13 @@ public class Printer {
     }
 
     private static Set<Нота> какиеНотыНеТрогали(Set<Действие> действия, Set<Нота> всеНоты) {
-        Set<Нота> дернулиНоты = new HashSet<Нота>();
+        Set<Нота> дернулиНоты = new HashSet<>();
         for (Действие действие : действия) {
             Нота нота = действие.нота();
             дернулиНоты.add(нота);
         }
 
-        Set<Нота> неДергалиНоты = new HashSet<Нота>(всеНоты);
+        Set<Нота> неДергалиНоты = new HashSet<>(всеНоты);
         for (Нота нота : дернулиНоты) {
             неДергалиНоты.remove(нота);
         }

@@ -1,9 +1,7 @@
 package com.apofig.parser;
 
 import com.apofig.music.LetItBe;
-import com.apofig.music.SuperMario;
-import com.apofig.parser.Printer;
-import com.apofig.Доля;
+import com.apofig.Длительность;
 import com.apofig.Звук;
 import com.apofig.Шаблон;
 import com.apofig.октавы.ПерваяОктава;
@@ -18,8 +16,8 @@ public class PrinterTest {
 
     @Test
     public void should() {
-        Звук c = Доля.половина(ПерваяОктава.C4);
-        Звук d = Доля.половина(ПерваяОктава.D4);
+        Звук c = Длительность.половина(ПерваяОктава.C4);
+        Звук d = Длительность.половина(ПерваяОктава.D4);
         Шаблон шаблон = Шаблон.подряд(c).потом(d);
 
         asrtШбл("D4(50)   ║ :+║\n" +
@@ -28,7 +26,7 @@ public class PrinterTest {
 
     @Test
     public void should2() {
-        Звук c = Доля.половина(ПерваяОктава.C4);
+        Звук c = Длительность.половина(ПерваяОктава.C4);
         Шаблон шаблон = Шаблон.подряд(c).потом(c);
 
         asrtШбл("C4(48)   ║+:+║\n", шаблон);
