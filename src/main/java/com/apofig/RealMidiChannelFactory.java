@@ -9,7 +9,6 @@ import javax.sound.midi.*;
  */
 public class RealMidiChannelFactory implements MidiChannelFactory {
 
-    @Override
     public MidiChannel get() {
         try {
             // init sequencer
